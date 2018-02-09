@@ -1,21 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./westbankstyle.css";
+import Logo from "./containers/LogoContainer";
+import Headings from "./containers/HeadingsContainer";
+import Process from "./containers/ProcessContainer";
+import Faqs from "./containers/FaqsContainer";
+import AboutUs from "./containers/AboutUsContainer";
+import Contact from "./containers/ContactContainer";
+import Footer from "./components/Footer";
+import CreateNewProject from "./containers/CreateNewProjectContainer";
+import LoadProjects from "./containers/LoadProjectsContainer";
+import LandingPage from "./containers/LandingPageContainer";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+// compoonentWillMount() {
+//
+// }
+
+function App() {
+  return (
+    <div className="App currentfont padbottom2">
+      <Logo />
+      <Headings />
+      <LandingPage />
+      <LoadProjects />
+      <Process />
+      <Faqs />
+      <AboutUs />
+      <Contact />
+      <CreateNewProject />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
