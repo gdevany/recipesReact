@@ -22,7 +22,7 @@ function Logo(props) {
   }
 
   return (
-    <div className="container landingSticky">
+    <div className="container">
       {viewIt}
     </div>
 

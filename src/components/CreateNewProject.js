@@ -70,7 +70,7 @@ class CreateNewProject extends React.Component {
 // When project name entered, it will show in red, without input box.
     let addProjectName = "";
     if (!this.state.projectNamed === true && this.state.loggedIn === true) {
-      window.scroll(0,230);
+      // window.scroll(0,230);
       addProjectName = (
         <div className="fullSize borderShadow padInsides d-flex align-items-center flex-column">
           <button

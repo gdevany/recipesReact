@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 
 const CLOUDINARY_UPLOAD_PRESET = "um4mdnly";
-const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/gdevany/upload";
+const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/gdevany/upload/a_ignore";
 
 class AddImages extends React.Component {
   constructor(props) {
