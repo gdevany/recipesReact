@@ -80,7 +80,7 @@ class AddImages extends React.Component {
             onDrop={this.onImageDrop.bind(this)}
             multiple={false}
             accept="image/*">
-            <div>{message}</div>
+            <div className="text-center padInsides">{message}</div>
           </Dropzone>
         </div>
       );

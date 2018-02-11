@@ -46,7 +46,7 @@ class LoadProjects extends React.Component {
           <div
             className="col-xs-12 col-sm-6 col-md-4 padbottom2"
             key={proj.public_id}>
-            <div className="align-items-center">
+            <div className="d-flex flex-column align-items-center">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(this.getProjectName(proj.public_id));
@@ -56,7 +56,7 @@ class LoadProjects extends React.Component {
                 publicId={proj.public_id}
                 style={{cursor: "pointer"}}
                 className="projimg projbox" />
-              <div className="padtop d-flex justify-content-center">
+              <div className="padtop">
                 {this.getProjectName(proj.public_id)}
               </div>
             </div>

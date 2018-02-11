@@ -233,6 +233,10 @@ a {
   padding: 5px;
 }
 
+.buttonGen {
+  padding: 10px;
+}
+
 .imgAddConfirm {
   width: 75%;
   max-width: 200px;

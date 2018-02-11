@@ -74,18 +74,18 @@ class CreateNewProject extends React.Component {
       addProjectName = (
         <div className="fullSize borderShadow padInsides d-flex align-items-center flex-column">
           <button
-            className="backButton padtop2"
+            className="buttonGen padtop2"
             onClick={() => {
               this.props.setPage("projects");
               this.logOut();
             }}>back
           </button>
-          <h1 className="padtop2">Create New Project</h1>
+          <h4 className="padtop2">Create New Project</h4>
           <form className="padbottom2 d-flex align-items-center flex-column" onSubmit={(e) => {
             e.preventDefault();
             this.projectNameAdded();
           }}>
-            <div className="padtop3">
+            <div className="padtop2">
               <input
                 autoFocus
                 size="30"
@@ -121,7 +121,7 @@ class CreateNewProject extends React.Component {
       );
     } else if (this.state.projectNamed === true && this.state.loggedIn === true) {
       addProjectName = (
-        <div className="fade-bold">{this.state.projects.projName}</div>
+        <div className="fade-bold padbottom">{this.state.projects.projName}</div>
       );
     } else {addProjectName = <div />;}
 
@@ -131,11 +131,10 @@ class CreateNewProject extends React.Component {
     let addImageBox = "";
     if (this.state.projectNamed === true && this.state.loggedIn === true) {
       addImageBox = (
-        <div>
-          <div>
-            <div className="col-sm-8 offset-sm-2 borderShadow padbottom2">
+// fullSize borderShadow padInsides d-flex align-items-center flex-column
+            <div className="col-10 borderShadow padbottom  d-flex flex-column">
               <button
-                className="backButton padtop3"
+                className="buttonGen padtop3"
                 onClick={() => {
                   this.props.setPage("projects");
                   this.logOut();
@@ -145,26 +144,21 @@ class CreateNewProject extends React.Component {
                 project={this.state.projects.projName}
                 caption={this.state.projects.caption}
               />
-            </div>
-          </div>
-        </div>);
+            </div>);
     } else {
       addImageBox = <div />;
     }
 
     return (
-      <div>
-        <div className="container">
-          <div className="row float-right">
+      <div className="container">
+          <div className="row col-12 justify-content-end">
             <div className="projboxx"
               onClick={() => {
                 this.setState({secBoxClicked: true});
                 this.props.setPage("");
               }} />
           </div>
-        </div>
 
-        <div className="container">
           <div className="row justify-content-center">
             <div className="col-8 d-flex flex-column align-items-center">
               <div className="">{signIn}</div>
@@ -174,7 +168,6 @@ class CreateNewProject extends React.Component {
               {addImageBox}
 
             </div>
-          </div>
         </div>
       </div>
     );
