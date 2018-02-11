@@ -56,7 +56,7 @@ class LoadProjects extends React.Component {
                 publicId={proj.public_id}
                 style={{cursor: "pointer"}}
                 className="projimg projbox" />
-              <div className="padtop">
+              <div className="padtop d-flex justify-content-center">
                 {this.getProjectName(proj.public_id)}
               </div>
             </div>
