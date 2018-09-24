@@ -7,6 +7,6 @@ export default {
   pageSelected: "landing",
   logo: "WPlogo3.png",
   cloudName: "gdevany",
-  cloudinaryFilePath: "wpb/projects",
+  cloudinaryFilePath: "wbp/projects",
   landingPic: "poolImage3.jpg"
 };
