@@ -57,7 +57,7 @@ class LoadProjects extends React.Component {
                   this.props.setProjectChosen(
                     this.getProjectName(proj.public_id)
                   );
-                  this.props.setPageSelect("");
+                  this.props.setPageSelect("project");
                 }}
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}

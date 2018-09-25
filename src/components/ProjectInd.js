@@ -61,7 +61,10 @@ class ProjectInd extends React.Component {
     // SHOW IF: (projectChosen)
     // Map thru project pics (this.state.gallery) to show
     let viewIt = "";
-    if (this.props.projectChosen !== "") {
+    if (
+      this.props.projectChosen !== "" &&
+      this.props.pageSelected === "project"
+    ) {
       // window.scroll(0,230);
       viewIt = this.state.gallery.map(image => {
         return (
