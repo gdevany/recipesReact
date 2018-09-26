@@ -9,7 +9,7 @@ import Contact from "./containers/ContactContainer";
 import Footer from "./components/Footer";
 import CreateNewProject from "./containers/CreateNewProjectContainer";
 import LoadProjects from "./containers/LoadProjectsContainer";
-import LandingPage from "./containers/LandingPageContainer";
+// import LandingPage from "./containers/LandingPageContainer";
 
 // compoonentWillMount() {
 //
@@ -20,7 +20,7 @@ function App() {
     <div className="App currentfont padbottom2">
       <Logo />
       <Headings />
-      <LandingPage />
+      {/* <LandingPage /> */}
       <LoadProjects />
       <Process />
       <Faqs />
