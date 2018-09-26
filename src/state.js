@@ -1,12 +1,12 @@
 export default {
-  pages: ["projects", "process", "faqs", "about", "contact"],
-  cloudinaryPojectFile: "wbp/projects/",
-  projectMainImageTag: "main",
+  pages: ["home", "search", "add recipe", "contact"],
+  cloudinaryPojectFile: "recipes/recipes/",
+  projectMainImageTag: "recipehead",
   loggedIn: false,
   projectChosen: "",
-  pageSelected: "projects",
-  logo: "cupcakes.jpg",
+  pageSelected: "home",
+  logo: "ydsyummys.png",
   cloudName: "gdevany",
-  cloudinaryFilePath: "wbp/projects",
+  cloudinaryFilePath: "recipes/recipes",
   landingPic: "poolImage3.jpg"
 };

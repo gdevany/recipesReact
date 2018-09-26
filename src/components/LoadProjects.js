@@ -43,7 +43,7 @@ class LoadProjects extends React.Component {
     // SHOW IF: "projects" page is selected
     let viewIt = "";
     let projs = "";
-    if (this.props.pageSelected === "projects") {
+    if (this.props.pageSelected === "home") {
       window.scroll(0, 0);
       projs = this.state.gallery.map(proj => {
         viewIt = (
@@ -80,11 +80,11 @@ class LoadProjects extends React.Component {
     return (
       <div>
         {this.props.projectChosen === "" ? null : <ProjectInd />}
-        {this.props.pageSelected !== "projects" ? null : (
+        {this.props.pageSelected !== "home" ? null : (
           <div className="container">
             <div className="col-sm-10 offset-sm-1 offset-lg-2 col-lg-8">
               <div className="row projtitle">
-                <div className="bigger spread text-left padtop2">projects</div>
+                <div className="bigger spread text-left padtop2">recipes</div>
               </div>
               <div className="row padtop2 projtitle">{projs}</div>
             </div>
