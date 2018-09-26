@@ -6,11 +6,11 @@ class CreateNewProject extends React.Component {
   constructor() {
     super();
     this.state = {
+      thisPage: "add recipe",
       projects: {
         projName: "",
         caption: "",
         projectNamed: false,
-        secBoxClicked: false,
         pword: "",
         loggedIn: false
       }
@@ -24,30 +24,29 @@ class CreateNewProject extends React.Component {
 
   // Authorization check
   checkAuth = () => {
-    if (
-      this.state.pword === "" ||
-      this.state.pword === undefined ||
-      this.state.pword.length < 10
-    ) {
-      // alert("You shouldnt be here");
-      this.setState({ secBoxClicked: false });
-      this.logOut();
-      this.props.setPage("projects");
+    let { pword } = this.state;
+    if (pword === "gregiscool" || pword === "Gregiscool") {
+      this.setState({ loggedIn: true });
     } else {
-      this.setState({ loggedIn: true, secBoxClicked: false });
+      alert("You shouldnt be here");
+      this.logOut();
     }
   };
 
   // Log out
   logOut = () => {
-    this.setState({ loggedIn: false });
+    this.setState({ loggedIn: false, projectNamed: false });
+    this.props.setPage("home");
   };
 
   render() {
-    // SHOW IF: secBoxClicked === true
-    // Onced secret box clicked, check signIn Auth
+    // SHOW IF: pageSelected === thisPage
+    // Check signIn Auth
     let signIn = "";
-    if (!this.state.secBoxClicked || this.props.pageSelected !== "") {
+    if (
+      this.props.pageSelected !== this.state.thisPage ||
+      this.state.loggedIn
+    ) {
       signIn = <div />;
     } else {
       signIn = (
@@ -62,7 +61,7 @@ class CreateNewProject extends React.Component {
               autoFocus
               onChange={e => this.setState({ pword: e.target.value })}
             />
-            <button type="submit">submit</button>
+            <button type="submit">enter super secret password</button>
           </div>
         </form>
       );
@@ -81,7 +80,6 @@ class CreateNewProject extends React.Component {
           <button
             className="buttonGen padtop2"
             onClick={() => {
-              this.props.setPage("projects");
               this.logOut();
             }}
           >
@@ -152,9 +150,10 @@ class CreateNewProject extends React.Component {
         // fullSize borderShadow padInsides d-flex align-items-center flex-column
         <div className="col-10 borderShadow padbottom  d-flex flex-column">
           <button
-            className="buttonGen"
+            className="buttonGen padtop2"
             onClick={() => {
-              this.props.setPage("projects");
+              alert("Please REFRESH page to see the newest addition");
+              this.props.setPage("home");
               this.logOut();
             }}
           >
@@ -172,22 +171,10 @@ class CreateNewProject extends React.Component {
 
     return (
       <div className="container">
-        <div className="row col-12 justify-content-end">
-          <div
-            className="projboxx"
-            onClick={() => {
-              this.setState({ secBoxClicked: true });
-              this.props.setPage("");
-            }}
-          />
-        </div>
-
         <div className="row justify-content-center">
           <div className="col-8 d-flex flex-column align-items-center">
             <div className="">{signIn}</div>
-
             {addProjectName}
-
             {addImageBox}
           </div>
         </div>

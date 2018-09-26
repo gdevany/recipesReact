@@ -1,10 +1,10 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import AddImages from "../components/AddImages";
-
 
 function mapStateToProps(state) {
   return {
-    cloudinaryFilePath: state.cloudinaryFilePath
+    cloudinaryFilePath: state.cloudinaryFilePath,
+    projectMainImageTag: state.projectMainImageTag
   };
 }
 

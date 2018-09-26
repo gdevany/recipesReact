@@ -1,5 +1,5 @@
 body {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   font-size: 12px;
   letter-spacing: 0.1em;
 }
@@ -21,7 +21,7 @@ a {
 }
 
 .currentfont {
-  font-family: 'Jura', sans-serif;
+  font-family: "Jura", sans-serif;
   font-weight: 500;
 }
 
@@ -67,7 +67,7 @@ a {
 }
 
 .fade-none {
-  opacity: 1.0;
+  opacity: 1;
 }
 
 .white {
@@ -234,7 +234,7 @@ a {
 }
 
 .buttonGen {
-  padding: 10px;
+  padding: 30px;
 }
 
 .imgAddConfirm {

@@ -3,7 +3,6 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import PropTypes from "prop-types";
 
-
 const CLOUDINARY_UPLOAD_PRESET = "um4mdnly";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/gdevany/upload";
 
@@ -14,14 +13,14 @@ class AddImages extends React.Component {
     this.state = {
       uploadedFile: null,
       uploadedFileCloudinaryUrl: "",
-      selectedMainImage: false,
+      selectedMainImage: false
     };
   }
 
-// removes the images file extension because cloudinary adds it
+  // removes the images file extension because cloudinary adds it
   removeExtension(fullName) {
     const idx = fullName.indexOf(".");
-    const withoutExt = fullName.slice(0,idx);
+    const withoutExt = fullName.slice(0, idx);
     return withoutExt;
   }
 
@@ -35,16 +34,20 @@ class AddImages extends React.Component {
   handleImageUpload(file) {
     let tag = `${this.props.project}`;
     if (this.state.selectedMainImage === false) {
-      tag = `${this.props.project}, main`;
+      tag = `${this.props.project}, ${this.props.projectMainImageTag}`;
     }
 
-    const upload = request.post(CLOUDINARY_UPLOAD_URL)
+    const upload = request
+      .post(CLOUDINARY_UPLOAD_URL)
       .field("upload_preset", CLOUDINARY_UPLOAD_PRESET)
       .field("file", file)
       .field("tags", [tag])
       .field("context", `caption=${this.props.caption}`)
-      .field("public_id", `${this.props.cloudinaryFilePath}/${this.props.project}/` +
-        this.removeExtension(file.name));
+      .field(
+        "public_id",
+        `${this.props.cloudinaryFilePath}/${this.props.project}/` +
+          this.removeExtension(file.name)
+      );
 
     upload.end((err, response) => {
       if (err) {
@@ -69,7 +72,7 @@ class AddImages extends React.Component {
       message = "Great! Now add project images";
     }
 
-// SHOW IF: project has been named (this.props.project)
+    // SHOW IF: project has been named (this.props.project)
     let viewBox = "";
     if (!this.props.project) {
       viewBox = <div />;
@@ -79,7 +82,8 @@ class AddImages extends React.Component {
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
             multiple={false}
-            accept="image/*">
+            accept="image/*"
+          >
             <div className="text-center padInsides">{message}</div>
           </Dropzone>
         </div>
@@ -88,20 +92,19 @@ class AddImages extends React.Component {
 
     return (
       <form>
-        <div className="">
-          {viewBox}
-        </div>
+        <div className="">{viewBox}</div>
         <div>
-          {this.state.uploadedFileCloudinaryUrl === "" ? null :
-          <div className="padbottom2">
-            <p>Confirmation Image: </p>
-            <p>{this.state.uploadedFile.name}</p>
-            <img
-              src={this.state.uploadedFileCloudinaryUrl}
-              alt="test"
-              className="imgAddConfirm"
+          {this.state.uploadedFileCloudinaryUrl === "" ? null : (
+            <div className="padbottom2">
+              <p>Confirmation Image: </p>
+              <p>{this.state.uploadedFile.name}</p>
+              <img
+                src={this.state.uploadedFileCloudinaryUrl}
+                alt="test"
+                className="imgAddConfirm"
               />
-          </div>}
+            </div>
+          )}
         </div>
       </form>
     );
@@ -111,7 +114,7 @@ class AddImages extends React.Component {
 AddImages.propTypes = {
   project: PropTypes.string.isRequired,
   caption: PropTypes.string.isRequired,
-  cloudinaryFilePath: PropTypes.string.isRequired,
+  cloudinaryFilePath: PropTypes.string.isRequired
 };
 
 export default AddImages;
