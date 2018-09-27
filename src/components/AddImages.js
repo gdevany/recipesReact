@@ -75,6 +75,7 @@ class AddImages extends React.Component {
     if (!this.props.project) {
       viewBox = <div />;
     } else {
+      window.scroll(0, 0);
       viewBox = (
         <div className="d-flex justify-content-center padtop2 padbottom2">
           <Dropzone
