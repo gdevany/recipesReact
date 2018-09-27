@@ -10,17 +10,17 @@ class PageSearch extends Component {
   };
 
   render() {
-    let viewIt = "";
+    let viewIt;
     if (this.props.pageSelected !== this.state.thisPage) {
       viewIt = <div />;
     } else {
       viewIt = (
-        <div className="col-xs-12 d-flex flex-wrap">
+        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center">
           {this.props.foodSubjects.map(food => {
             return (
               <button
                 key={food}
-                className="padsides"
+                className="padsides padInsides padtop padbottom"
                 onClick={() => {
                   this.setSubject(food);
                 }}
