@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setPageSelect } from "../actions";
+import { setPageSelect, setSearchTagChosen } from "../actions";
 import PageSearch from "../components/PageSearch";
 
 function mapStateToProps(state) {
@@ -11,7 +11,8 @@ function mapStateToProps(state) {
     projectChosen: state.projectChosen,
     cloudinaryPojectFile: state.cloudinaryPojectFile,
     projectMainImageTag: state.projectMainImageTag,
-    cloudName: state.cloudName
+    cloudName: state.cloudName,
+    searchTagChosen: state.searchTagChosen
   };
 }
 
@@ -19,6 +20,9 @@ function mapDispatchToProps(dispatch) {
   return {
     setPageSelect: page => {
       dispatch(setPageSelect(page));
+    },
+    setSearchTagChosen: tag => {
+      dispatch(setSearchTagChosen(tag));
     }
   };
 }

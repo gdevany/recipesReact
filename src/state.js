@@ -21,6 +21,7 @@ export default {
   projectMainImageTag: "recipehead",
   loggedIn: false,
   projectChosen: "",
+  searchTagChosen: "",
   pageSelected: "home",
   logo: "ydsyummys.png",
   cloudName: "gdevany",

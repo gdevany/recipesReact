@@ -18,3 +18,10 @@ export function loadUser(user) {
     value: user
   };
 }
+
+export function setSearchTagChosen(tag) {
+  return {
+    type: "SEARCH_TAG_CHOSEN",
+    value: tag
+  };
+}

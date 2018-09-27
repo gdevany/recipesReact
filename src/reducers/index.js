@@ -100,6 +100,13 @@ function projects(state = "", action) {
   return state;
 }
 
+function searchTagChosen(state = "", action) {
+  if (action.type === "SEARCH_TAG_CHOSEN") {
+    return action.value;
+  }
+  return state;
+}
+
 const rootReducer = combineReducers({
   pages,
   cloudinaryPojectFile,
@@ -114,6 +121,7 @@ const rootReducer = combineReducers({
   projectChosen,
   pageSelected,
   loggedIn,
-  projects
+  projects,
+  searchTagChosen
 });
 export default rootReducer;
