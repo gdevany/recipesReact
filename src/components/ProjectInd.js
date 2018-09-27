@@ -34,15 +34,11 @@ class ProjectInd extends React.Component {
   // SHOW IF: this.state.imageClicked === true
   // show full size rendering (<ShowFullSizeImage />)
   showFullSizeImage = () => {
-    return (
-      // this.state.imageViewerClicked === false ?
-      // null : <ImageViewer imageList={this.state.gallery} />
-      this.state.imageViewerClicked === false ? null : (
-        <ShowFullSizeImage
-          image={this.state.imageClicked}
-          toggleShow={this.toggleImageViewerClicked}
-        />
-      )
+    return this.state.imageViewerClicked === false ? null : (
+      <ShowFullSizeImage
+        image={this.state.imageClicked}
+        toggleShow={this.toggleImageViewerClicked}
+      />
     );
   };
 

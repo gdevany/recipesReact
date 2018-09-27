@@ -1,4 +1,4 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 
 // Constants:
 function pages(state = [], action) {
@@ -43,6 +43,27 @@ function cloudinaryFilePath(state = "", action) {
   return state;
 }
 
+function foodSubjects(state = "", action) {
+  if (action.type === "FOOD_SUBJECTS") {
+    return action.type;
+  }
+  return state;
+}
+
+function CLOUDINARY_UPLOAD_PRESET(state = "", action) {
+  if (action.type === "CUP") {
+    return action.type;
+  }
+  return state;
+}
+
+function CLOUDINARY_UPLOAD_URL(state = "", action) {
+  if (action.type === "CUU") {
+    return action.type;
+  }
+  return state;
+}
+
 function landingPic(state = "", action) {
   if (action.type === "LANDING_PIC") {
     return action.type;
@@ -80,7 +101,19 @@ function projects(state = "", action) {
 }
 
 const rootReducer = combineReducers({
-  pages,cloudinaryPojectFile,projectMainImageTag,logo,cloudinaryFilePath,landingPic,
-  cloudName,projectChosen,pageSelected,loggedIn,projects
+  pages,
+  cloudinaryPojectFile,
+  projectMainImageTag,
+  logo,
+  cloudinaryFilePath,
+  foodSubjects,
+  CLOUDINARY_UPLOAD_PRESET,
+  CLOUDINARY_UPLOAD_URL,
+  landingPic,
+  cloudName,
+  projectChosen,
+  pageSelected,
+  loggedIn,
+  projects
 });
 export default rootReducer;

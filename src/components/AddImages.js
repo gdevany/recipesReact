@@ -3,9 +3,6 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import PropTypes from "prop-types";
 
-const CLOUDINARY_UPLOAD_PRESET = "um4mdnly";
-const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/gdevany/upload";
-
 class AddImages extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +35,8 @@ class AddImages extends React.Component {
     }
 
     const upload = request
-      .post(CLOUDINARY_UPLOAD_URL)
-      .field("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+      .post(`${this.props.CUU}`)
+      .field("upload_preset", `${this.props.CUP}`)
       .field("file", file)
       .field("tags", [tag])
       .field("context", `caption=${this.props.caption}`)
@@ -68,6 +65,7 @@ class AddImages extends React.Component {
 
   render() {
     let message = "CLICK HERE (or drag here) to add MAIN project image";
+
     if (this.state.selectedMainImage === true) {
       message = "Great! Now add project images";
     }
