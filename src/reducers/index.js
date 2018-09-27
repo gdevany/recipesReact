@@ -43,7 +43,7 @@ function cloudinaryFilePath(state = "", action) {
   return state;
 }
 
-function foodSubjects(state = "", action) {
+function foodSubjects(state = [], action) {
   if (action.type === "FOOD_SUBJECTS") {
     return action.type;
   }

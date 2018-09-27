@@ -2,7 +2,7 @@ import React from "react";
 import AddImages from "../containers/AddImagesContainer";
 import PropTypes from "prop-types";
 
-class CreateNewProject extends React.Component {
+class PageCreateNewProject extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -179,8 +179,8 @@ class CreateNewProject extends React.Component {
   }
 }
 
-CreateNewProject.propTypes = {
+PageCreateNewProject.propTypes = {
   setPage: PropTypes.func.isRequired
 };
 
-export default CreateNewProject;
+export default PageCreateNewProject;

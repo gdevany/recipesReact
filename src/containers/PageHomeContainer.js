@@ -1,7 +1,6 @@
-import {connect} from "react-redux";
-import {setProjectChosen, setPageSelect} from "../actions";
-import LoadProjects from "../components/LoadProjects";
-
+import { connect } from "react-redux";
+import { setProjectChosen, setPageSelect } from "../actions";
+import PageHome from "../components/PageHome";
 
 function mapStateToProps(state) {
   return {
@@ -17,13 +16,16 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setProjectChosen: (proj) => {
+    setProjectChosen: proj => {
       dispatch(setProjectChosen(proj));
     },
-    setPageSelect: (page) => {
+    setPageSelect: page => {
       dispatch(setPageSelect(page));
     }
   };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoadProjects);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PageHome);

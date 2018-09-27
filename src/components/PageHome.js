@@ -5,7 +5,7 @@ import ProjectInd from "../containers/ProjectIndContainer";
 import PropTypes from "prop-types";
 
 // LANDING PAGE
-class LoadProjects extends React.Component {
+class PageHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,7 +96,7 @@ class LoadProjects extends React.Component {
   }
 }
 
-LoadProjects.propTypes = {
+PageHome.propTypes = {
   cloudinaryPojectFile: PropTypes.string.isRequired,
   projectMainImageTag: PropTypes.string.isRequired,
   cloudName: PropTypes.string.isRequired,
@@ -106,4 +106,4 @@ LoadProjects.propTypes = {
   projectChosen: PropTypes.string.isRequired
 };
 
-export default LoadProjects;
+export default PageHome;
