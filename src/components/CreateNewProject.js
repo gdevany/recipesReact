@@ -17,12 +17,8 @@ class CreateNewProject extends React.Component {
     };
   }
 
-  // Set this.state.projectNamed === true if form submitted
-  projectNameAdded = () => {
-    return this.setState({ projectNamed: true });
-  };
-
   // Authorization check
+  // This is TODO for future
   checkAuth = () => {
     let { pword } = this.state;
     if (pword === "gregiscool" || pword === "Gregiscool") {
@@ -90,7 +86,7 @@ class CreateNewProject extends React.Component {
             className="padbottom2 d-flex align-items-center flex-column"
             onSubmit={e => {
               e.preventDefault();
-              this.projectNameAdded();
+              this.setState({ projectNamed: true });
             }}
           >
             <div className="padtop2">

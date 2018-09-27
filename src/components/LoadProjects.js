@@ -9,6 +9,7 @@ class LoadProjects extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      thisPage: "home",
       gallery: [],
       projectFile: this.props.cloudinaryPojectFile,
       projectMainImageTag: this.props.projectMainImageTag
@@ -43,7 +44,7 @@ class LoadProjects extends React.Component {
     // SHOW IF: "projects" page is selected
     let viewIt = "";
     let projs = "";
-    if (this.props.pageSelected === "home") {
+    if (this.props.pageSelected === this.state.thisPage) {
       window.scroll(0, 0);
       projs = this.state.gallery.map(proj => {
         viewIt = (
@@ -80,7 +81,7 @@ class LoadProjects extends React.Component {
     return (
       <div>
         {this.props.projectChosen === "" ? null : <ProjectInd />}
-        {this.props.pageSelected !== "home" ? null : (
+        {this.props.pageSelected !== this.state.thisPage ? null : (
           <div className="container">
             <div className="col-sm-10 offset-sm-1 offset-lg-2 col-lg-8">
               <div className="row projtitle">

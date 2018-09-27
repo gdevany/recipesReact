@@ -1,5 +1,4 @@
 import React from "react";
-// import ImageViewer from "../containers/ImageViewerContainer";
 import axios from "axios";
 import { Image } from "cloudinary-react";
 import ShowFullSizeImage from "../containers/ShowFullSizeImageContainer";
@@ -10,6 +9,7 @@ class ProjectInd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      thisPage: "project",
       gallery: [],
       imageViewerClicked: false,
       imageClicked: ""
@@ -63,7 +63,7 @@ class ProjectInd extends React.Component {
     let viewIt = "";
     if (
       this.props.projectChosen !== "" &&
-      this.props.pageSelected === "project"
+      this.props.pageSelected === this.state.thisPage
     ) {
       // window.scroll(0,230);
       viewIt = this.state.gallery.map(image => {
