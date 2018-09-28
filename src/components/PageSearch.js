@@ -20,7 +20,7 @@ class PageSearch extends Component {
             return (
               <button
                 key={food}
-                className="padsides padInsides padtop padbottom"
+                className="padsides padInsides padtop padbottom currentfont"
                 onClick={() => {
                   this.setSubject(food);
                 }}

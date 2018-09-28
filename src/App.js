@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import Logo from "./containers/LogoContainer";
 import Headings from "./containers/HeadingsContainer";
 import PageContact from "./containers/PageContactContainer";
