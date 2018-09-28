@@ -29,27 +29,30 @@ function Headings(props) {
     );
   });
   return (
-    <nav className="navbar navbar-expand-sm">
-      <div className="container justify-content-center">
-        <div className="row d-flex flex-column">
-          <button
-            className="navbar-toggler fade-bold"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon black currentfont">menu</span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav tight">{viewIt}</ul>
+    <div>
+      <nav className="navbar navbar-expand-sm">
+        <div className="container justify-content-center">
+          <div className="row d-flex flex-column">
+            <button
+              className="navbar-toggler fade-bold"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon black currentfont">
+                menu
+              </span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav tight">{viewIt}</ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-
+      </nav>
+    </div>
     // <nav className="navbar navbar-toggleable-sm raiseIt d-flex justify-content-center">
     //   <div className="d-flex justify-content-center">
     //     <button
