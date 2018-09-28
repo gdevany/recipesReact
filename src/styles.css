@@ -102,11 +102,8 @@ a {
 }
 
 .navbar {
-  display: none;
   font-size: 15px;
-  padding: 0 1em;
-  border-radius: 0;
-  margin-bottom: 0;
+  position: initial !important;
 }
 
 .navbar-toggler-icon {
