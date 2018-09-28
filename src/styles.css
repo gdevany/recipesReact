@@ -53,6 +53,10 @@ a {
   letter-spacing: 0.1em;
 }
 
+.minHeight {
+  min-height: 20em;
+}
+
 .tight {
   letter-spacing: 0em;
 }
@@ -111,10 +115,6 @@ a {
   height: 100%;
 }
 
-.navborder {
-  /*border: 0;*/
-}
-
 .navbar-brand {
   padding: 0;
   margin: 0;
@@ -134,10 +134,8 @@ a {
 }
 
 .logoinit {
-  /* background: url("./pics/WPlogo.png") no-repeat center; */
   width: auto;
   height: 95%;
-  /* background-size: contain; */
 }
 
 .seclogo {

@@ -170,8 +170,10 @@ class PageCreateNewProject extends React.Component {
         <div className="row justify-content-center">
           <div className="col-8 d-flex flex-column align-items-center">
             <div className="">{signIn}</div>
-            {addProjectName}
-            {addImageBox}
+            <div>
+              {addProjectName}
+              {addImageBox}
+            </div>
           </div>
         </div>
       </div>
