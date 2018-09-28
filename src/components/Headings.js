@@ -31,7 +31,7 @@ function Headings(props) {
   return (
     <nav className="navbar navbar-expand-sm">
       <div className="container justify-content-center">
-        <div className="row">
+        <div className="row d-flex flex-column">
           <button
             className="navbar-toggler fade-bold"
             type="button"
