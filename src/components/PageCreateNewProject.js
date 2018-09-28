@@ -144,7 +144,7 @@ class PageCreateNewProject extends React.Component {
     if (this.state.projectNamed === true && this.state.loggedIn === true) {
       addImageBox = (
         // fullSize borderShadow padInsides d-flex align-items-center flex-column
-        <div className="col-10 borderShadow padbottom  d-flex flex-column align-items-center">
+        <div className="col-12 borderShadow padbottom  d-flex flex-column align-items-center">
           <button
             className="buttonGen padtop2"
             onClick={() => {
