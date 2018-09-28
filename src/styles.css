@@ -243,6 +243,10 @@ a {
   /* padding: 0.7em !important; */
 }
 
+.navbar-toggler-icon {
+  min-width: 4.5em;
+}
+
 .imgAddConfirm {
   width: 75%;
   max-width: 200px;
