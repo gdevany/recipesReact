@@ -30,20 +30,22 @@ function Headings(props) {
   });
   return (
     <nav className="navbar navbar-expand-sm">
-      <div className="d-flex justify-content-center">
-        <button
-          className="navbar-toggler fade-bold"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon black currentfont">menu</span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav tight">{viewIt}</ul>
+      <div className="container justify-content-center">
+        <div className="row">
+          <button
+            className="navbar-toggler fade-bold"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon black currentfont">menu</span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav tight">{viewIt}</ul>
+          </div>
         </div>
       </div>
     </nav>

@@ -238,8 +238,9 @@ a {
 }
 
 .badge {
-  font-size: 200%;
+  font-size: 100% !important;
   margin: 1em;
+  /* padding: 0.7em !important; */
 }
 
 .imgAddConfirm {
