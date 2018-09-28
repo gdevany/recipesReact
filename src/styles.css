@@ -237,6 +237,11 @@ a {
   padding: 30px;
 }
 
+.badge {
+  font-size: 200%;
+  margin: 1em;
+}
+
 .imgAddConfirm {
   width: 75%;
   max-width: 200px;

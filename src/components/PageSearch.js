@@ -15,12 +15,12 @@ class PageSearch extends Component {
       viewIt = <div />;
     } else {
       viewIt = (
-        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center">
+        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
           {this.props.foodSubjects.map(food => {
             return (
               <button
                 key={food}
-                className="padsides padInsides padtop padbottom currentfont"
+                className="badge badge-secondary"
                 onClick={() => {
                   this.setSubject(food);
                 }}
