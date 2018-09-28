@@ -129,7 +129,7 @@ class PageCreateNewProject extends React.Component {
       this.state.loggedIn === true
     ) {
       addProjectName = (
-        <div className="fade-bold padbottom">
+        <div className="fade-bold padbottom text-center">
           {this.state.projects.projName}
         </div>
       );
@@ -144,7 +144,7 @@ class PageCreateNewProject extends React.Component {
     if (this.state.projectNamed === true && this.state.loggedIn === true) {
       addImageBox = (
         // fullSize borderShadow padInsides d-flex align-items-center flex-column
-        <div className="col-10 borderShadow padbottom  d-flex flex-column">
+        <div className="col-10 borderShadow padbottom  d-flex flex-column align-items-center">
           <button
             className="buttonGen padtop2"
             onClick={() => {
@@ -170,7 +170,7 @@ class PageCreateNewProject extends React.Component {
         <div className="row justify-content-center">
           <div className="col-8 d-flex flex-column align-items-center">
             <div className="">{signIn}</div>
-            <div>
+            <div className="d-flex flex-column align-items-center">
               {addProjectName}
               {addImageBox}
             </div>
