@@ -29,7 +29,7 @@ function Headings(props) {
     );
   });
   return (
-    <div className="d-flex container justify-content-center">
+    <div className="d-flex container justify-content-center raiseIt">
       <nav className="row justify-content-center navbar navbar-expand-sm">
         <button
           className="navbar-toggler fade-bold"
