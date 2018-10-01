@@ -49,7 +49,7 @@ class PageHome extends React.Component {
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div
-            className="col-xs-12 col-sm-6 col-md-4 padbottom2"
+            className="col-6 col-md-4 col-xl-3 padbottom2"
             key={proj.public_id}
           >
             <div className="d-flex flex-column align-items-center">
@@ -83,11 +83,13 @@ class PageHome extends React.Component {
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
           <div className="container">
-            <div className="col-sm-10 offset-sm-1 offset-lg-2 col-lg-8">
-              <div className="row projtitle">
-                <div className="bigger spread text-left padtop2">recipes</div>
+            <div className="row">
+              <div className="col-12 offset-lg-1 col-lg-10">
+                <div className="row projtitle">
+                  <div className="bigger spread text-left padtop2">recipes</div>
+                </div>
+                <div className="row padtop2 projtitle">{projs}</div>
               </div>
-              <div className="row padtop2 projtitle">{projs}</div>
             </div>
           </div>
         )}
