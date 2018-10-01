@@ -12,7 +12,7 @@ function ShowFullSizeImage(props) {
         publicId={props.image}
         className="projIndimg"
       />
-      <div className="row position-absolute">
+      <div className="row">
         <span
           className="topRight white biggest shadow"
           onClick={props.toggleShow}

@@ -54,7 +54,6 @@ class AddImages extends React.Component {
 
       if (response.body.secure_url !== "") {
         //eslint-disable-next-line
-        console.log(this.state.uploadedFileCloudinaryUrl);
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url,
           selectedMainImage: true
