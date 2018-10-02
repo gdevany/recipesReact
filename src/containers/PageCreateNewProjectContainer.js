@@ -4,7 +4,9 @@ import { setPageSelect } from "../actions";
 
 function mapStateToProps(state) {
   return {
-    pageSelected: state.pageSelected
+    pageSelected: state.pageSelected,
+    subjects: state.subjects,
+    appSubject: state.appSubject
   };
 }
 

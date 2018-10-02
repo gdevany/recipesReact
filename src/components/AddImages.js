@@ -29,9 +29,13 @@ class AddImages extends React.Component {
   }
 
   handleImageUpload(file) {
-    let tag = `${this.props.project}`;
+    let tag = this.props.project
+      ? `${this.props.project}, ${this.props.tags}`
+      : "other";
     if (this.state.selectedMainImage === false) {
-      tag = `${this.props.project}, ${this.props.projectMainImageTag}`;
+      tag = `${this.props.project}, ${this.props.tags}, ${
+        this.props.projectMainImageTag
+      }`;
     }
 
     const upload = request

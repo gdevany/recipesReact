@@ -3,8 +3,8 @@ import AddImages from "../containers/AddImagesContainer";
 import PropTypes from "prop-types";
 
 class PageCreateNewProject extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       thisPage: "add recipe",
       projects: {
@@ -12,7 +12,9 @@ class PageCreateNewProject extends React.Component {
         caption: "",
         projectNamed: false,
         pword: "",
-        loggedIn: false
+        loggedIn: false,
+        tagsChosen: false,
+        tags: []
       }
     };
   }
@@ -36,6 +38,7 @@ class PageCreateNewProject extends React.Component {
   };
 
   render() {
+    console.log(this.state.tags);
     // SHOW IF: pageSelected === thisPage
     // Check signIn Auth
     let signIn = "";
@@ -137,11 +140,45 @@ class PageCreateNewProject extends React.Component {
       addProjectName = <div />;
     }
 
-    // SHOW IF: this.state.projectNamed === true && loggedIn === true.
+    let chooseTags = "";
+    let tagSelected = [this.props.appSubject];
+    if (this.state.projectNamed === true && !this.state.tagsChosen) {
+      chooseTags = (
+        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
+          {this.props.subjects.map(tag => {
+            return (
+              <button
+                key={tag}
+                className="badge badge-secondary"
+                onClick={() => {
+                  tagSelected.push(tag);
+                }}
+              >
+                {tag}
+              </button>
+            );
+          })}
+          <button
+            className="button button-secondary"
+            onClick={() => {
+              this.setState({
+                tags: tagSelected,
+                tagsChosen: true
+              });
+            }}
+          >
+            Click here when done
+          </button>
+        </div>
+      );
+    }
+
+    // SHOW IF: this.state.tagsChosen === true.
     // ADD IMAGES component call
     // Show addImageBox IF new project named
     let addImageBox = "";
-    if (this.state.projectNamed === true && this.state.loggedIn === true) {
+    // if (this.state.projectNamed === true && this.state.loggedIn === true) {
+    if (this.state.tagsChosen) {
       addImageBox = (
         // fullSize borderShadow padInsides d-flex align-items-center flex-column
         <div className="col-12 borderShadow padbottom  d-flex flex-column align-items-center">
@@ -158,6 +195,7 @@ class PageCreateNewProject extends React.Component {
           <AddImages
             project={this.state.projects.projName}
             caption={this.state.projects.caption}
+            tags={this.state.tags}
           />
         </div>
       );
@@ -172,6 +210,7 @@ class PageCreateNewProject extends React.Component {
             <div className="">{signIn}</div>
             <div>
               {addProjectName}
+              {chooseTags}
               {addImageBox}
             </div>
           </div>
