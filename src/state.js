@@ -1,6 +1,6 @@
 export default {
   pages: ["home", "search", "add recipe", "contact"],
-  foodSubjects: [
+  subjects: [
     "favorites",
     "breakfast",
     "dinner",

@@ -50,7 +50,7 @@ function cloudinaryFilePath(state = "", action) {
   return state;
 }
 
-function foodSubjects(state = [], action) {
+function subjects(state = [], action) {
   if (action.type === "FOOD_SUBJECTS") {
     return action.type;
   }
@@ -121,7 +121,7 @@ const rootReducer = combineReducers({
   projectMainImageTag,
   logo,
   cloudinaryFilePath,
-  foodSubjects,
+  subjects,
   CLOUDINARY_UPLOAD_PRESET,
   CLOUDINARY_UPLOAD_URL,
   landingPic,

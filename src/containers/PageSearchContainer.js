@@ -4,7 +4,7 @@ import PageSearch from "../components/PageSearch";
 
 function mapStateToProps(state) {
   return {
-    foodSubjects: state.foodSubjects,
+    subjects: state.subjects,
     projects: state.projects,
     loggedIn: state.loggedIn,
     pageSelected: state.pageSelected,

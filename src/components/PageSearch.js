@@ -16,7 +16,7 @@ class PageSearch extends Component {
     } else {
       viewIt = (
         <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
-          {this.props.foodSubjects.map(food => {
+          {this.props.subjects.map(food => {
             return (
               <button
                 key={food}
