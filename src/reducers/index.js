@@ -8,6 +8,13 @@ function pages(state = [], action) {
   return state;
 }
 
+function appSubject(state = "", action) {
+  if (action.type === "APP_SUBJECT") {
+    return action.type;
+  }
+  return state;
+}
+
 function cloudinaryPojectFile(state = "", action) {
   if (action.type === "CPF") {
     return action.type;
@@ -109,6 +116,7 @@ function searchTagChosen(state = "", action) {
 
 const rootReducer = combineReducers({
   pages,
+  appSubject,
   cloudinaryPojectFile,
   projectMainImageTag,
   logo,

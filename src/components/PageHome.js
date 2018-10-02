@@ -86,9 +86,11 @@ class PageHome extends React.Component {
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row projtitle">
-                  <div className="bigger spread text-left padtop2">recipes</div>
+                  <div className="bigger spread text-left padtop2 m-2">
+                    {this.props.appSubject}s
+                  </div>
                 </div>
-                <div className="row padtop2 projtitle">{projs}</div>
+                <div className="row no-gutters padtop2 projtitle">{projs}</div>
               </div>
             </div>
           </div>

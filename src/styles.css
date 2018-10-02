@@ -213,7 +213,7 @@ a {
 
 .projimg {
   width: 100%;
-  max-width: 230px;
+  max-width: 14em;
   height: 200px;
   /*margin-bottom: 30px;*/
   padding: 5px;
