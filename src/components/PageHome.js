@@ -49,10 +49,10 @@ class PageHome extends React.Component {
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div
-            className="col-6 col-md-4 col-xl-3 padbottom2"
+            className="col-6 col-md-4 col-xl-3 padbottom2 borderShadow"
             key={proj.public_id}
           >
-            <div className="d-flex flex-column align-items-center">
+            <div className="d-flex flex-column align-items-center padbottom padtopshort">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(

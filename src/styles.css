@@ -213,8 +213,8 @@ a {
 
 .projimg {
   width: 100%;
-  max-width: 14em;
-  height: 200px;
+  max-width: 12em;
+  height: 10rem;
   /*margin-bottom: 30px;*/
   padding: 5px;
 }
@@ -236,6 +236,10 @@ a {
   width: 75%;
   max-width: 200px;
   margin-bottom: 20px;
+}
+
+.padtopshort {
+  margin-top: 5px;
 }
 
 .padtop {
