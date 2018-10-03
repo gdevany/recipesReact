@@ -118,6 +118,10 @@ a {
   box-shadow: 0px 0px 25px 0px #333;
 }
 
+.borderIt {
+  border: 1px solid grey;
+}
+
 .projtitle {
   padding-bottom: 10px;
   border-bottom: 2px solid rgba(242, 242, 242, 1);

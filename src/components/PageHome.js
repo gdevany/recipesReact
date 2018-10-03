@@ -52,7 +52,7 @@ class PageHome extends React.Component {
             className="col-6 col-md-4 col-xl-3 padbottom2 borderShadow"
             key={proj.public_id}
           >
-            <div className="d-flex flex-column align-items-center padbottom padtopshort">
+            <div className="d-flex flex-column align-items-center padbottom padtop2">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(
@@ -63,7 +63,7 @@ class PageHome extends React.Component {
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}
                 style={{ cursor: "pointer" }}
-                className="projimg projbox"
+                className="projimg projbox borderShadow"
                 quality="10"
               />
               <div className="padtop">
@@ -90,7 +90,7 @@ class PageHome extends React.Component {
                     {this.props.appSubject}s
                   </div>
                 </div>
-                <div className="row no-gutters padtop2 projtitle">{projs}</div>
+                <div className="row padtop2 projtitle">{projs}</div>
               </div>
             </div>
           </div>
