@@ -41,7 +41,7 @@ class PageHome extends React.Component {
   };
 
   render() {
-    // SHOW IF: "projects" page is selected
+    // SHOW IF: Page selected === "home"
     let viewIt = "";
     let projs = "";
     if (this.props.pageSelected === this.state.thisPage) {
