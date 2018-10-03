@@ -214,8 +214,8 @@ class PageCreateNewProject extends React.Component {
           <div className="row flex-column align-items-center">
             {signIn}
             {addProjectName}
-            {addImageBox}
           </div>
+          <div className="row col-10 offset-1">{addImageBox}</div>
           <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
             {chooseTags}
             {this.state.projectNamed === true &&
