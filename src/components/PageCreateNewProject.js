@@ -69,7 +69,7 @@ class PageCreateNewProject extends React.Component {
             this.checkAuth();
           }}
         >
-          <div>
+          <div className="row col-12 padtop3 justify-content-center">
             <input
               autoFocus
               onChange={e => this.setState({ pword: e.target.value })}
