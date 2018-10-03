@@ -56,7 +56,7 @@ class PageCreateNewProject extends React.Component {
   };
 
   render() {
-    window.scroll(0, 0);
+    window.scroll(0, 230);
     // SHOW IF: this.state.loggedIn
     // Check signIn Auth
     let signIn = "";
