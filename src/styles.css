@@ -225,8 +225,7 @@ a {
 
 .badge {
   font-size: 100% !important;
-  margin: 1em;
-  /* padding: 0.7em !important; */
+  margin: 0.5em;
 }
 
 .navbar-toggler-icon {

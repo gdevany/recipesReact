@@ -19,6 +19,10 @@ class PageCreateNewProject extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    this.setState({ tags: [this.props.appSubject] });
+  };
+
   // Authorization check
   // This is TODO for future
   checkAuth = () => {
@@ -37,15 +41,18 @@ class PageCreateNewProject extends React.Component {
     this.props.setPage("home");
   };
 
+  tagToggle = tag => {
+    if (this.state.tags.includes(tag)) {
+      this.setState({ tags: this.state.tags.filter(t => t !== tag) });
+    } else this.setState({ tags: [...this.state.tags, tag] });
+  };
+
   render() {
     console.log(this.state.tags);
-    // SHOW IF: pageSelected === thisPage
+    // SHOW IF: this.state.loggedIn
     // Check signIn Auth
     let signIn = "";
-    if (
-      this.props.pageSelected !== this.state.thisPage ||
-      this.state.loggedIn
-    ) {
+    if (this.state.loggedIn) {
       signIn = <div />;
     } else {
       signIn = (
@@ -140,29 +147,32 @@ class PageCreateNewProject extends React.Component {
       addProjectName = <div />;
     }
 
+    //SHOW IF: projectNamed && !tagsChosen
+    //ADD TAGS
+    //Maps through tags from state.subjects,
+    //When selected, adds them to this.state.tags (sent with image)
     let chooseTags = "";
-    let tagSelected = [this.props.appSubject];
     if (this.state.projectNamed === true && !this.state.tagsChosen) {
       chooseTags = (
-        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
-          {this.props.subjects.map(tag => {
-            return (
-              <button
-                key={tag}
-                className="badge badge-secondary"
-                onClick={() => {
-                  tagSelected.push(tag);
-                }}
-              >
-                {tag}
-              </button>
-            );
-          })}
+        <div className="d-flex flex-column">
+          <div className="col-12 d-flex flex-wrap justify-content-center padtop3">
+            {this.props.subjects.map(tag => {
+              return (
+                <button
+                  key={tag}
+                  className="badge badge-secondary"
+                  onClick={() => this.tagToggle(tag)}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+
           <button
             className="button button-secondary"
             onClick={() => {
               this.setState({
-                tags: tagSelected,
                 tagsChosen: true
               });
             }}
@@ -173,7 +183,7 @@ class PageCreateNewProject extends React.Component {
       );
     }
 
-    // SHOW IF: this.state.tagsChosen === true.
+    // SHOW IF: this.state.tagsChosen === true && thisPage.
     // ADD IMAGES component call
     // Show addImageBox IF new project named
     let addImageBox = "";
@@ -205,16 +215,27 @@ class PageCreateNewProject extends React.Component {
 
     return (
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-8 d-flex flex-column align-items-center">
-            <div className="">{signIn}</div>
-            <div>
-              {addProjectName}
-              {chooseTags}
-              {addImageBox}
+        {this.state.thisPage === this.props.pageSelected && (
+          <div className="row justify-content-center">
+            <div className="col-8 d-flex flex-column align-items-center">
+              <div className="">{signIn}</div>
+              <div>
+                {addProjectName}
+                <div className="d-flex flex-wrap">
+                  {this.state.tags.map((t, i) => {
+                    return (
+                      <div key={i} className="m-1 padbottom">
+                        {t}
+                      </div>
+                    );
+                  })}
+                </div>
+                {chooseTags}
+                {addImageBox}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
