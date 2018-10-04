@@ -55,7 +55,7 @@ class PageCreateNewProject extends React.Component {
     }
   };
 
-  render() {
+  showSignIn = () => {
     // SHOW IF: this.state.loggedIn
     // Check signIn Auth
     let signIn = "";
@@ -79,16 +79,19 @@ class PageCreateNewProject extends React.Component {
         </form>
       );
     }
+    return signIn;
+  };
 
+  addProjectName = () => {
     // SHOW IF: this.state.projectNamed === false && loggedIn === true
     // NAME NEW PROJECT
     // Input the new project name and caption(description).
     // When button is pressed, AddImages will open.
     // When project name entered, it will show in red, without input box.
-    let addProjectName = "";
+    let addProjName = "";
     if (!this.state.projectNamed && this.state.loggedIn) {
       // window.scroll(0,230);
-      addProjectName = (
+      addProjName = (
         <div className="fullSize borderShadow padInsides d-flex align-items-center flex-column">
           <button
             className="buttonGen padtop2"
@@ -145,15 +148,18 @@ class PageCreateNewProject extends React.Component {
       this.state.projectNamed === true &&
       this.state.loggedIn === true
     ) {
-      addProjectName = (
+      addProjName = (
         <div className="fade-bold padbottom text-center">
           {this.state.projects.projName}
         </div>
       );
     } else {
-      addProjectName = <div />;
+      addProjName = <div />;
     }
+    return addProjName;
+  };
 
+  activateTags = () => {
     //SHOW IF: projectNamed && !tagsChosen
     //ADD TAGS
     //Maps through tags from state.subjects,
@@ -177,7 +183,10 @@ class PageCreateNewProject extends React.Component {
         );
       });
     }
+    return chooseTags;
+  };
 
+  addImages = () => {
     // SHOW IF: this.state.tagsChosen === true && thisPage.
     // ADD IMAGES component call
     // Show addImageBox IF new project named
@@ -207,17 +216,21 @@ class PageCreateNewProject extends React.Component {
     } else {
       addImageBox = <div />;
     }
+    return addImageBox
+  }
+
+  render() {
 
     return this.state.thisPage === this.props.pageSelected ? (
       <div className="container">
         <div>
           <div className="row flex-column align-items-center">
-            {signIn}
-            {addProjectName}
+            {this.showSignIn()}
+            {this.addProjectName()}
           </div>
-          <div className="row col-10 offset-1">{addImageBox}</div>
+          <div className="row col-10 offset-1">{this.addImages()}</div>
           <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-            {chooseTags}
+            {this.activateTags()}
             {this.state.projectNamed === true &&
               !this.state.tagsChosen && (
                 <button
