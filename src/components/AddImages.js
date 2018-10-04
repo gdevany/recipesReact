@@ -66,14 +66,14 @@ class AddImages extends React.Component {
     });
   }
 
-  render() {
+  showDropzone = () => {
+    // SHOW IF: project has been named (this.props.project)
     let message = "CLICK HERE (or drag here) to add MAIN project image";
 
     if (this.state.selectedMainImage === true) {
       message = "Great! Now add project images";
     }
 
-    // SHOW IF: project has been named (this.props.project)
     let viewBox = "";
     if (!this.props.project) {
       viewBox = <div />;
@@ -91,10 +91,13 @@ class AddImages extends React.Component {
         </div>
       );
     }
+    return viewBox;
+  };
 
+  render() {
     return (
       <form>
-        <div className="">{viewBox}</div>
+        <div className="">{this.showDropzone()}</div>
         <div>
           {this.state.uploadedFileCloudinaryUrl === "" ? null : (
             <div className="padbottom2">
