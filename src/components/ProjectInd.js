@@ -46,14 +46,17 @@ class ProjectInd extends React.Component {
     this.setState({ imageViewerClicked: !this.state.imageViewerClicked });
   };
 
-  render() {
+  showDescription = () => {
     // SHOW IF: state.gallery is loaded with ProjectChosen image links
     // Get project description
     let showDesc = "";
     if (this.state.gallery.length > 0) {
       showDesc = this.state.gallery[0].context.custom.caption;
     }
+    return showDesc;
+  };
 
+  showProjInd = () => {
     // SHOW IF: (projectChosen)
     // Map thru project pics (this.state.gallery) to show
     let viewIt = "";
@@ -81,18 +84,21 @@ class ProjectInd extends React.Component {
     } else {
       return <div />;
     }
+    return viewIt;
+  };
 
+  render() {
     return (
       <div className="container">
         <div className="row black padtop">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
           <div className="offset-sm-1 col-sm-8 offset-md-1 col-md-5 d-flex text-left flex-column">
             <div className="biggest projtitle">{this.props.projectChosen}</div>
-            <div className="padtop2 padbottom">{showDesc}</div>
+            <div className="padtop2 padbottom">{this.showDescription()}</div>
           </div>
           <div className="col-sm-12 col-md-5 d-flex flex-column text-center">
             <div>Click image to view full size</div>
-            <div>{viewIt}</div>
+            <div>{this.showProjInd()}</div>
           </div>
         </div>
       </div>
