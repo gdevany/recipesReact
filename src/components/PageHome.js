@@ -21,7 +21,7 @@ class PageHome extends React.Component {
     axios
       .get(
         `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
-          this.state.projectMainImageTag
+          this.props.searchTagChosen
         }.json`
       )
       .then(res => {
@@ -89,7 +89,7 @@ class PageHome extends React.Component {
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row projtitle">
                   <div className="bigger spread text-left padtop2 m-2">
-                    {this.props.appSubject}s
+                    {this.props.searchTagChosen}s
                   </div>
                 </div>
                 <div className="row padtop2 projtitle">{this.showHome()}</div>

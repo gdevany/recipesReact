@@ -22,7 +22,7 @@ export default {
   appSubject: "recipe",
   loggedIn: false,
   projectChosen: "",
-  searchTagChosen: "",
+  searchTagChosen: "Favorites recipe",
   pageSelected: "home",
   logo: "ydsyummys.png",
   cloudName: "gdevany",

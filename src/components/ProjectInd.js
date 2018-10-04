@@ -26,7 +26,6 @@ class ProjectInd extends React.Component {
       )
       .then(res => {
         //eslint-disable-next-line
-        console.log(res.data.resources);
         this.setState({ gallery: res.data.resources });
       });
   }
@@ -51,7 +50,9 @@ class ProjectInd extends React.Component {
     // Get project description
     let showDesc = "";
     if (this.state.gallery.length > 0) {
-      showDesc = this.state.gallery[0].context.custom.caption;
+      this.state.gallery[0].context !== "undefined"
+        ? (showDesc = this.state.gallery[0].context.custom.caption)
+        : (showDesc = "empty description");
     }
     return showDesc;
   };
@@ -97,7 +98,7 @@ class ProjectInd extends React.Component {
             <div className="padtop2 padbottom">{this.showDescription()}</div>
           </div>
           <div className="col-sm-12 col-md-5 d-flex flex-column text-center">
-            <div>Click image to view full size</div>
+            <small>Click image to toggle full size</small>
             <div>{this.showProjInd()}</div>
           </div>
         </div>

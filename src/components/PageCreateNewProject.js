@@ -216,11 +216,10 @@ class PageCreateNewProject extends React.Component {
     } else {
       addImageBox = <div />;
     }
-    return addImageBox
-  }
+    return addImageBox;
+  };
 
   render() {
-
     return this.state.thisPage === this.props.pageSelected ? (
       <div className="container">
         <div>

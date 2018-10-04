@@ -11,7 +11,8 @@ function mapStateToProps(state) {
     appSubject: state.appSubject,
     cloudinaryPojectFile: state.cloudinaryPojectFile,
     projectMainImageTag: state.projectMainImageTag,
-    cloudName: state.cloudName
+    cloudName: state.cloudName,
+    searchTagChosen: state.searchTagChosen
   };
 }
 
