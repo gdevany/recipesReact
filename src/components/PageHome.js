@@ -40,7 +40,7 @@ class PageHome extends React.Component {
     return projName;
   };
 
-  render() {
+  showHome = () => {
     // SHOW IF: Page selected === "home"
     let viewIt = "";
     let projs = "";
@@ -79,7 +79,10 @@ class PageHome extends React.Component {
     } else {
       viewIt = <div />;
     }
+    return projs;
+  };
 
+  render() {
     return (
       <div>
         {this.props.projectChosen === "" ? null : <ProjectInd />}
@@ -92,7 +95,7 @@ class PageHome extends React.Component {
                     {this.props.appSubject}s
                   </div>
                 </div>
-                <div className="row padtop2 projtitle">{projs}</div>
+                <div className="row padtop2 projtitle">{this.showHome()}</div>
               </div>
             </div>
           </div>
