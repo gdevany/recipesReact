@@ -7,33 +7,33 @@ class PageSearch extends Component {
 
   setSubject = food => {
     this.props.setSearchTagChosen(food);
+    this.props.setPageSelect("home");
+  };
+
+  showSearchTags = () => {
+    const viewIt = (
+      <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
+        {this.props.subjects.map(food => {
+          return (
+            <button
+              key={food}
+              className="badge badge-secondary"
+              onClick={() => {
+                this.setSubject(food);
+              }}
+            >
+              {food}
+            </button>
+          );
+        })}
+      </div>
+    );
+    return viewIt;
   };
 
   render() {
-    let viewIt;
-    if (this.props.pageSelected !== this.state.thisPage) {
-      viewIt = <div />;
-    } else {
-      viewIt = (
-        <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
-          {this.props.subjects.map(food => {
-            return (
-              <button
-                key={food}
-                className="badge badge-secondary"
-                onClick={() => {
-                  this.setSubject(food);
-                }}
-              >
-                {food}
-              </button>
-            );
-          })}
-        </div>
-      );
-    }
     return this.props.pageSelected === this.state.thisPage ? (
-      <div>{viewIt}</div>
+      <div>{this.showSearchTags()}</div>
     ) : (
       <div />
     );

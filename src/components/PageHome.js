@@ -17,7 +17,7 @@ class PageHome extends React.Component {
   }
 
   // PRELOAD PROJECTS tagged as (this.props.projectMainImageTag) from cloudinary
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(
         `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
@@ -28,6 +28,20 @@ class PageHome extends React.Component {
         this.setState({ gallery: res.data.resources });
         console.log(res.data.resources);
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.searchTagChosen !== prevProps.searchTagChosen) {
+      axios
+        .get(
+          `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
+            this.props.searchTagChosen
+          }.json`
+        )
+        .then(res => {
+          this.setState({ gallery: res.data.resources });
+        });
+    }
   }
 
   // REMOVE FILE EXTENSION
@@ -80,6 +94,9 @@ class PageHome extends React.Component {
   };
 
   render() {
+    if (this.props.pageSelected === this.state.thisPage) {
+      console.log(this.props.searchTagChosen);
+    }
     return (
       <div>
         {this.props.projectChosen === "" ? null : <ProjectInd />}
