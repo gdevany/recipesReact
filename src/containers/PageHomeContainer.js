@@ -8,7 +8,6 @@ function mapStateToProps(state) {
     loggedIn: state.loggedIn,
     pageSelected: state.pageSelected,
     projectChosen: state.projectChosen,
-    searchTagChosen: state.searchTagChosen,
     appSubject: state.appSubject,
     cloudinaryPojectFile: state.cloudinaryPojectFile,
     projectMainImageTag: state.projectMainImageTag,

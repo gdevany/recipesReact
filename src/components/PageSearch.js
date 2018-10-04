@@ -32,7 +32,11 @@ class PageSearch extends Component {
         </div>
       );
     }
-    return <div>{viewIt}</div>;
+    return this.props.pageSelected === this.state.thisPage ? (
+      <div>{viewIt}</div>
+    ) : (
+      <div />
+    );
   }
 }
 

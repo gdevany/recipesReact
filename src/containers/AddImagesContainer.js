@@ -7,7 +7,6 @@ function mapStateToProps(state) {
     CUU: state.CLOUDINARY_UPLOAD_URL,
     cloudinaryFilePath: state.cloudinaryFilePath,
     projectMainImageTag: state.projectMainImageTag,
-    searchTagChosen: state.searchTagChosen
   };
 }
 
