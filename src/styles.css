@@ -20,6 +20,7 @@ a {
 
 .currentfont {
   font-family: "Jura", sans-serif;
+  /* options: 300 regular 500 600 700 */
   font-weight: 500;
 }
 
@@ -49,6 +50,7 @@ a {
 
 .spread {
   letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 .minHeight {

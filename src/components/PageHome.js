@@ -67,7 +67,9 @@ class PageHome extends React.Component {
                 quality="10"
               />
               <div className="padtop">
-                <small>{this.getProjectName(proj.public_id)}</small>
+                <small className="currentfont">
+                  {this.getProjectName(proj.public_id)}
+                </small>
               </div>
             </div>
           </div>
