@@ -10,30 +10,35 @@ class PageSearch extends Component {
     this.props.setPageSelect("home");
   };
 
-  showSearchTags = () => {
-    const viewIt = (
-      <div className="col-8 offset-2 d-flex flex-wrap justify-content-center padtop3">
-        {this.props.subjects.map(food => {
-          return (
+  activateTags = () => {
+    //SHOW IF: thisPage === props.pageSelected
+    //Maps through tags from props.subjects,
+    //When selected, adds tag to props.searchTagChosen
+    let chooseTags = "";
+    if (this.state.thisPage === this.props.pageSelected) {
+      chooseTags = this.props.subjects.map(tag => {
+        return (
+          <div className="m-1" key={tag}>
             <button
-              key={food}
               className="badge badge-secondary"
-              onClick={() => {
-                this.setSubject(food);
-              }}
+              onClick={() => this.setSubject(tag)}
             >
-              {food}
+              {tag}
             </button>
-          );
-        })}
-      </div>
-    );
-    return viewIt;
+          </div>
+        );
+      });
+    }
+    return chooseTags;
   };
 
   render() {
     return this.props.pageSelected === this.state.thisPage ? (
-      <div>{this.showSearchTags()}</div>
+      <div className="container">
+        <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
+          {this.activateTags()}
+        </div>
+      </div>
     ) : (
       <div />
     );
