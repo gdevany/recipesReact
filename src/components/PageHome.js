@@ -77,7 +77,7 @@ class PageHome extends React.Component {
                 className="projimg projbox borderShadow"
                 quality="10"
               />
-              <div className="padtop">
+              <div className="padtop text-center">
                 <small className="currentfont">
                   {this.getProjectName(proj.public_id)}
                 </small>
