@@ -19,7 +19,7 @@ export default {
   CLOUDINARY_UPLOAD_URL: "https://api.cloudinary.com/v1_1/gdevany/upload",
   cloudinaryPojectFile: "recipes/recipes/",
   projectMainImageTag: "recipehead",
-  appSubject: "recipe",
+  appSubject: "recipeReact",
   loggedIn: false,
   projectChosen: "",
   searchTagChosen: "Favorites recipe",

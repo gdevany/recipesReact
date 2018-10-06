@@ -35,7 +35,7 @@ class AddImages extends React.Component {
     let tag;
     if (this.props.project) {
       if (this.state.selectedMainImage) {
-        tag = `${this.props.project}, ${this.props.appSubject}`;
+        tag = `${this.props.project}`;
       } else {
         tag = `${this.props.project}, ${this.props.projectMainImageTag}, ${
           this.props.tags
