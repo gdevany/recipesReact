@@ -98,7 +98,7 @@ class ProjectInd extends React.Component {
             <div className="padtop2 padbottom">{this.showDescription()}</div>
           </div>
           <div className="col-sm-12 col-md-5 d-flex flex-column text-center">
-            <small>Click image to toggle full size</small>
+            <small>Click image to toggle full size & quality</small>
             <div>{this.showProjInd()}</div>
           </div>
         </div>
