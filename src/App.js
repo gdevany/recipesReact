@@ -15,7 +15,7 @@ import PageSearch from "./containers/PageSearchContainer";
 
 function App() {
   return (
-    <div className="App currentfont padbottom2">
+    <div className="currentfont padbottom2">
       <Logo />
       <Headings />
       {/* <LandingPage /> */}
