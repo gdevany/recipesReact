@@ -28,6 +28,7 @@ class PageHome extends React.Component {
         this.setState({ gallery: res.data.resources });
         console.log(res.data.resources);
       });
+    window.scroll(0, 0);
   }
 
   componentDidUpdate(prevProps) {
@@ -59,11 +60,10 @@ class PageHome extends React.Component {
     let viewIt = "";
     let projs = "";
     if (this.props.pageSelected === this.state.thisPage) {
-      window.scroll(0, 0);
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div className="col-6 col-sm-4 col-xl-3" key={proj.public_id}>
-            <div className="d-flex flex-column align-items-center padbottom padtop2">
+            <div className="projbox d-flex flex-column align-items-center padbottom padtop2">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(
@@ -74,7 +74,7 @@ class PageHome extends React.Component {
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}
                 style={{ cursor: "pointer" }}
-                className="projimg projbox borderShadow"
+                className="projimg borderShadow"
                 quality="10"
               />
               <div className="padtop text-center">
@@ -104,12 +104,14 @@ class PageHome extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
-                <div className="row projtitle">
+                <div className="row no-gutters projtitle">
                   <div className="bigger spread text-left padtop2 m-2">
                     {this.props.searchTagChosen}s
                   </div>
                 </div>
-                <div className="row padtop2 projtitle">{this.showHome()}</div>
+                <div className="row no-gutters padtop2 projtitle">
+                  {this.showHome()}
+                </div>
               </div>
             </div>
           </div>
