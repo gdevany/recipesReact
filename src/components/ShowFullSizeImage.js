@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 // SHOW IF: <ProjectInd /> calls it
 function ShowFullSizeImage(props) {
-  window.scroll(0, 130);
+  window.scroll(0, 0);
   return (
     <div className="container">
       <Image
