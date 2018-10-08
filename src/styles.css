@@ -1,6 +1,6 @@
 body {
-  background-color: #fdfdfd;
-  /* background-color: grey; */
+  background-color: #4b9c8d57 !important;
+  /* background-color: #fdfdfd; */
   font-size: 12px;
   letter-spacing: 0.1em;
 }
@@ -23,6 +23,10 @@ a {
   font-family: "Jura", sans-serif;
   /* options: 300 regular 500 600 700 */
   font-weight: 500;
+}
+
+.logoBackground {
+  background-color: #fcfcfc;
 }
 
 .itally {
@@ -127,17 +131,17 @@ a {
 
 .projtitle {
   padding-bottom: 10px;
-  border-bottom: 2px solid rgba(242, 242, 242, 1);
+  border-bottom: 0.5px solid rgba(242, 242, 242, 1);
 }
 
 .logoinit {
   width: auto;
-  height: 95%;
+  height: 80%;
 }
 
 .seclogo {
-  width: 70%;
-  height: 120px;
+  width: 50vw;
+  height: 5em;
 }
 
 .miniLogo {
@@ -206,7 +210,7 @@ a {
 .projimg {
   width: 75%;
   /* max-width: 12em; */
-  height: 11rem;
+  height: 9rem;
   object-fit: cover;
   padding: 5px;
 }

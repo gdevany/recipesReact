@@ -101,7 +101,7 @@ class PageHome extends React.Component {
       <div>
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
-          <div className="container">
+          <div className="container padtop3">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">
