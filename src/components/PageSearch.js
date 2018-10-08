@@ -5,6 +5,10 @@ class PageSearch extends Component {
     thisPage: "search"
   };
 
+  componentDidMount = () => {
+    window.scroll(0, 0);
+  };
+
   setSubject = food => {
     this.props.setSearchTagChosen(food);
     this.props.setPageSelect("home");

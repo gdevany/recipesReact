@@ -14,6 +14,10 @@ class AddImages extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    window.scroll(0, 0);
+  };
+
   // removes the images file extension because cloudinary adds it
   removeExtension(fullName) {
     const idx = fullName.indexOf(".");

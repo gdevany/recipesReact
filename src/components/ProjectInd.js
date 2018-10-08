@@ -17,7 +17,7 @@ class ProjectInd extends React.Component {
   }
 
   // Preload the list of "TAGGED" projects from cloudinary
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(
         `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
@@ -28,6 +28,7 @@ class ProjectInd extends React.Component {
         //eslint-disable-next-line
         this.setState({ gallery: res.data.resources });
       });
+    window.scroll(0, 0);
   }
 
   // SHOW IF: this.state.imageClicked === true
@@ -89,6 +90,7 @@ class ProjectInd extends React.Component {
   };
 
   render() {
+    !this.state.imageViewerClicked ? window.scroll(0, 0) : null;
     return (
       <div className="container">
         <div className="row black padtop">
