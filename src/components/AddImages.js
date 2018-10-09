@@ -1,5 +1,6 @@
 import React from "react";
 import Dropzone from "react-dropzone";
+import axios from "axios";
 import request from "superagent";
 import PropTypes from "prop-types";
 
@@ -8,14 +9,32 @@ class AddImages extends React.Component {
     super(props);
 
     this.state = {
-      uploadedFile: null,
+      uploadedFileName: null,
       uploadedFileCloudinaryUrl: "",
-      selectedMainImage: false
+      selectedMainImage: false,
+      listOfAllRecipes: []
     };
   }
 
+  //Preload a list of all image names (this.state.listOfAllRecipes)
   componentDidMount = () => {
     window.scroll(0, 0);
+    axios
+      .get(
+        `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
+          this.props.appSubject
+        }.json`
+      )
+      .then(res => {
+        let listOfRecipes = [];
+        res.data.resources.map(t => {
+          let strippedFileNameIndex = t.public_id.lastIndexOf("/") + 1;
+          let strippedFileName = t.public_id.slice(strippedFileNameIndex);
+          listOfRecipes.push(strippedFileName);
+          return null;
+        });
+        this.setState({ listOfAllRecipes: listOfRecipes });
+      });
   };
 
   // removes the images file extension because cloudinary adds it
@@ -26,9 +45,6 @@ class AddImages extends React.Component {
   }
 
   onImageDrop(files) {
-    this.setState({
-      uploadedFile: files[0]
-    });
     this.handleImageUpload(files[0]);
   }
 
@@ -46,6 +62,16 @@ class AddImages extends React.Component {
         }, ${this.props.appSubject}`;
       }
     }
+    //strippedFileName = (original name) OR (original name + random#)
+    let strippedFileName = this.removeExtension(file.name);
+    if (this.state.listOfAllRecipes.includes(strippedFileName)) {
+      strippedFileName = strippedFileName + Math.floor(Math.random() * 1000);
+    }
+    //Add this file name to state.listOfAllRecipes
+    this.setState({
+      listOfAllRecipes: [...this.state.listOfAllRecipes, strippedFileName],
+      uploadedFileName: strippedFileName
+    });
 
     const upload = request
       .post(`${this.props.CUU}`)
@@ -55,8 +81,9 @@ class AddImages extends React.Component {
       .field("context", `caption=${this.props.caption}`)
       .field(
         "public_id",
-        `${this.props.cloudinaryFilePath}/${this.props.project}/` +
-          this.removeExtension(file.name)
+        `${this.props.cloudinaryFilePath}/${
+          this.props.project
+        }/${strippedFileName}`
       );
 
     upload.end((err, response) => {
@@ -104,13 +131,13 @@ class AddImages extends React.Component {
   };
 
   showConfirmationImage = () => {
-    let viewIt = <div />;
+    let viewIt;
     this.state.uploadedFileCloudinaryUrl === ""
-      ? null
+      ? (viewIt = <div />)
       : (viewIt = (
           <div className="d-flex flex-column align-items-center padbottom2">
             <p>Confirmation Image: </p>
-            <p>{this.state.uploadedFile.name}</p>
+            <p>{this.state.uploadedFileName}</p>
             <img
               src={this.state.uploadedFileCloudinaryUrl}
               alt="test"
