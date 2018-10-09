@@ -90,7 +90,7 @@ class ProjectInd extends React.Component {
   };
 
   render() {
-    !this.state.imageViewerClicked ? window.scroll(0, 0) : null;
+    !this.state.imageViewerClicked ? window.scroll(0, 0) : window.scroll(0, 0);
     return (
       <div className="container">
         <div className="row black padtop">

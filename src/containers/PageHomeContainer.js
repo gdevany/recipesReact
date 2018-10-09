@@ -1,5 +1,9 @@
 import { connect } from "react-redux";
-import { setProjectChosen, setPageSelect } from "../actions";
+import {
+  setProjectChosen,
+  setPageSelect,
+  setSearchTagChosen
+} from "../actions";
 import PageHome from "../components/PageHome";
 
 function mapStateToProps(state) {
@@ -23,6 +27,9 @@ function mapDispatchToProps(dispatch) {
     },
     setPageSelect: page => {
       dispatch(setPageSelect(page));
+    },
+    setSearchTagChosen: tag => {
+      dispatch(setSearchTagChosen(tag));
     }
   };
 }

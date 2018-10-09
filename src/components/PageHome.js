@@ -10,13 +10,15 @@ class PageHome extends React.Component {
     super(props);
     this.state = {
       thisPage: "home",
+      initialSearchTag: this.props.searchTagChosen,
+      message: "",
       gallery: [],
       projectFile: this.props.cloudinaryPojectFile,
       projectMainImageTag: this.props.projectMainImageTag
     };
   }
 
-  // PRELOAD PROJECTS tagged as (this.props.projectMainImageTag) from cloudinary
+  //PRELOAD PROJECTS tagged as (this.props.projectMainImageTag) from cloudinary
   componentDidMount() {
     axios
       .get(
@@ -31,6 +33,7 @@ class PageHome extends React.Component {
     window.scroll(0, 0);
   }
 
+  //LOAD PROJECTS: When search tag changes
   componentDidUpdate(prevProps) {
     if (this.props.searchTagChosen !== prevProps.searchTagChosen) {
       axios
@@ -40,10 +43,33 @@ class PageHome extends React.Component {
           }.json`
         )
         .then(res => {
-          this.setState({ gallery: res.data.resources });
+          this.setState({ gallery: res.data.resources, message: "" });
+        })
+        .catch(err => {
+          this.setState({
+            message: `Sorry we didn't find anything with that search tag. Click here to continue`
+          });
+          this.showErrorMessage();
         });
     }
   }
+  //SHOWIF: Search returns error
+  //When button clicked, re-render page with initial search tag
+  showErrorMessage = () => {
+    const errorButton = (
+      <div className="d-flex justify-content-center padtop3">
+        <button
+          className="btn btn-secondary"
+          onClick={() =>
+            this.props.setSearchTagChosen(this.state.initialSearchTag)
+          }
+        >
+          {this.state.message}
+        </button>
+      </div>
+    );
+    return errorButton;
+  };
 
   // REMOVE FILE EXTENSION
   // Take the full file name of project selected, and extract the project name.
@@ -55,11 +81,14 @@ class PageHome extends React.Component {
     return projName;
   };
 
+  // SHOW IF: Page selected === "home"
   showHome = () => {
-    // SHOW IF: Page selected === "home"
-    let viewIt = "";
-    let projs = "";
-    if (this.props.pageSelected === this.state.thisPage) {
+    let viewIt;
+    let projs;
+    if (
+      this.props.pageSelected === this.state.thisPage &&
+      !this.state.message
+    ) {
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div className="col-6 col-sm-4 col-xl-3" key={proj.public_id}>
@@ -95,10 +124,11 @@ class PageHome extends React.Component {
 
   render() {
     if (this.props.pageSelected === this.state.thisPage) {
-      console.log(this.props.searchTagChosen);
+      window.scroll(0, 0);
     }
     return (
       <div>
+        {this.state.message ? this.showErrorMessage() : null}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
           <div className="container padtop3">
