@@ -69,9 +69,10 @@ class PageCreateNewProject extends React.Component {
             this.checkAuth();
           }}
         >
-          <div className="row col-12 padtop3 justify-content-center">
+          <div className="row col-12 nopadbottom padtop3 justify-content-center">
             <input
               autoFocus
+              autoCapitalize="off"
               onChange={e => this.setState({ pword: e.target.value })}
             />
             <button type="submit">enter super secret password</button>

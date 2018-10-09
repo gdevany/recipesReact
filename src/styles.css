@@ -257,6 +257,10 @@ a {
   margin-top: 50px;
 }
 
+.nopadbottom {
+  padding-bottom: 0em !important;
+}
+
 .padbottom {
   margin-bottom: 20px;
 }
