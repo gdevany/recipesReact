@@ -34,16 +34,16 @@ class AddImages extends React.Component {
 
   handleImageUpload(file) {
     //IF: there is a project
-    //IF: state.selectedMainImage, add2tags -> project, MainIMageTag
-    //ELSE: add2tags -> project, MainImageTag, props.tags
+    //IF: state.selectedMainImage, add2tags -> project, appSubject
+    //ELSE: add2tags -> project, appSubject, MainImageTag, props.tags
     let tag;
     if (this.props.project) {
       if (this.state.selectedMainImage) {
-        tag = `${this.props.project}`;
+        tag = `${this.props.project}, ${this.props.appSubject}`;
       } else {
         tag = `${this.props.project}, ${this.props.projectMainImageTag}, ${
           this.props.tags
-        },`;
+        }, ${this.props.appSubject}`;
       }
     }
 
@@ -103,23 +103,29 @@ class AddImages extends React.Component {
     return viewBox;
   };
 
+  showConfirmationImage = () => {
+    let viewIt = <div />;
+    this.state.uploadedFileCloudinaryUrl === ""
+      ? null
+      : (viewIt = (
+          <div className="d-flex flex-column align-items-center padbottom2">
+            <p>Confirmation Image: </p>
+            <p>{this.state.uploadedFile.name}</p>
+            <img
+              src={this.state.uploadedFileCloudinaryUrl}
+              alt="test"
+              className="imgAddConfirm"
+            />
+          </div>
+        ));
+    return viewIt;
+  };
+
   render() {
     return (
       <form>
         <div className="">{this.showDropzone()}</div>
-        <div>
-          {this.state.uploadedFileCloudinaryUrl === "" ? null : (
-            <div className="padbottom2">
-              <p>Confirmation Image: </p>
-              <p>{this.state.uploadedFile.name}</p>
-              <img
-                src={this.state.uploadedFileCloudinaryUrl}
-                alt="test"
-                className="imgAddConfirm"
-              />
-            </div>
-          )}
-        </div>
+        <div>{this.showConfirmationImage()}</div>
       </form>
     );
   }

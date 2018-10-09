@@ -159,7 +159,7 @@ class PageCreateNewProject extends React.Component {
     return addProjName;
   };
 
-  activateTags = () => {
+  showTags = () => {
     //SHOW IF: projectNamed && !tagsChosen
     //ADD TAGS
     //Maps through tags from state.subjects,
@@ -229,7 +229,7 @@ class PageCreateNewProject extends React.Component {
           </div>
           <div className="row col-10 offset-1">{this.addImages()}</div>
           <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-            {this.activateTags()}
+            {this.showTags()}
             {this.state.projectNamed === true &&
               !this.state.tagsChosen && (
                 <button
