@@ -12,7 +12,9 @@ class AddImages extends React.Component {
       uploadedFileName: null,
       uploadedFileCloudinaryUrl: "",
       selectedMainImage: false,
-      listOfAllRecipes: []
+      listOfAllRecipes: [],
+      fileLoading: false,
+      fileLoaded: false
     };
   }
 
@@ -49,6 +51,12 @@ class AddImages extends React.Component {
   }
 
   handleImageUpload(file) {
+    this.setState({
+      fileLoaded: false,
+      fileLoading: true,
+      uploadedFileCloudinaryUrl: ""
+    });
+
     //IF: there is a project
     //IF: state.selectedMainImage, add2tags -> project, appSubject
     //ELSE: add2tags -> project, appSubject, MainImageTag, props.tags
@@ -62,11 +70,13 @@ class AddImages extends React.Component {
         }, ${this.props.appSubject}`;
       }
     }
+
     //strippedFileName = (original name) OR (original name + random#)
     let strippedFileName = this.removeExtension(file.name);
     if (this.state.listOfAllRecipes.includes(strippedFileName)) {
       strippedFileName = strippedFileName + Math.floor(Math.random() * 1000);
     }
+
     //Add this file name to state.listOfAllRecipes
     this.setState({
       listOfAllRecipes: [...this.state.listOfAllRecipes, strippedFileName],
@@ -91,12 +101,13 @@ class AddImages extends React.Component {
         //eslint-disable-next-line
         console.error(err);
       }
-
       if (response.body.secure_url !== "") {
         //eslint-disable-next-line
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url,
-          selectedMainImage: true
+          selectedMainImage: true,
+          fileLoaded: true,
+          fileLoading: false
         });
       }
     });
@@ -152,7 +163,10 @@ class AddImages extends React.Component {
     return (
       <form>
         <div className="">{this.showDropzone()}</div>
-        <div>{this.showConfirmationImage()}</div>
+        <div>
+          {this.state.fileLoading && <div>...loading</div>}
+          {this.state.fileLoaded && this.showConfirmationImage()}
+        </div>
       </form>
     );
   }
