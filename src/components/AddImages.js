@@ -1,7 +1,6 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 import Loader from "react-loader-spinner";
-// https://www.npmjs.com/package/react-loader-spinner
 import axios from "axios";
 import request from "superagent";
 import PropTypes from "prop-types";

@@ -12,15 +12,13 @@ function ShowFullSizeImage(props) {
         publicId={props.image}
         className="projIndimg"
       />
-      <div className="row">
-        <span
-          className="topRight white biggest shadow"
-          onClick={props.toggleShow}
-          style={{ cursor: "pointer" }}
-        >
-          X
-        </span>
-      </div>
+      <span
+        className="topRight white biggest shadow"
+        onClick={props.toggleShow}
+        style={{ cursor: "pointer" }}
+      >
+        X
+      </span>
       {/* <div className="row">
         <img
           src={require(`../pics/${props.logo}`)}

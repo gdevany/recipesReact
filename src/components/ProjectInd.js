@@ -95,11 +95,11 @@ class ProjectInd extends React.Component {
       <div className="container">
         <div className="row black padtop">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
-          <div className="offset-sm-1 col-sm-8 offset-md-1 col-md-5 d-flex text-left flex-column">
+          <div className="offset-1 col-5 d-flex text-left flex-column">
             <div className="biggest projtitle">{this.props.projectChosen}</div>
             <div className="padtop2 padbottom">{this.showDescription()}</div>
           </div>
-          <div className="col-sm-12 col-md-5 d-flex flex-column text-center">
+          <div className="col-5 d-flex flex-column text-center">
             <small>Click image to toggle full size & quality</small>
             <div>{this.showProjInd()}</div>
           </div>
