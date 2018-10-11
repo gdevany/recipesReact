@@ -1,5 +1,7 @@
 import React from "react";
 import Dropzone from "react-dropzone";
+import Loader from "react-loader-spinner";
+// https://www.npmjs.com/package/react-loader-spinner
 import axios from "axios";
 import request from "superagent";
 import PropTypes from "prop-types";
@@ -114,7 +116,7 @@ class AddImages extends React.Component {
   }
 
   showDropzone = () => {
-    // SHOW IF: project has been named (this.props.project)
+    // SHOW IF: project has been named (this.props.project) && !fileLoading
     let message = "CLICK HERE (or drag here) to add MAIN project image";
 
     if (this.state.selectedMainImage === true) {
@@ -122,7 +124,7 @@ class AddImages extends React.Component {
     }
 
     let viewBox = "";
-    if (!this.props.project) {
+    if (!this.props.project || this.state.fileLoading) {
       viewBox = <div />;
     } else {
       window.scroll(0, 0);
@@ -139,6 +141,14 @@ class AddImages extends React.Component {
       );
     }
     return viewBox;
+  };
+
+  showLoading = () => {
+    return (
+      <div className="d-flex justify-content-center">
+        <Loader type="Puff" color="#00BFFF" height="100" width="100" />
+      </div>
+    );
   };
 
   showConfirmationImage = () => {
@@ -163,10 +173,8 @@ class AddImages extends React.Component {
     return (
       <form>
         <div className="">{this.showDropzone()}</div>
-        <div>
-          {this.state.fileLoading && <div>...loading</div>}
-          {this.state.fileLoaded && this.showConfirmationImage()}
-        </div>
+        {this.state.fileLoading && this.showLoading()}
+        {this.state.fileLoaded && this.showConfirmationImage()}
       </form>
     );
   }
