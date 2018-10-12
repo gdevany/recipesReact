@@ -1,6 +1,8 @@
 body {
-  background-color: #4b9c8d57 !important;
-  /* background-color: #fdfdfd; */
+  /* background-color: #87c5ba57 !important; */
+  /* background-color: #fcfcfc !important; */
+  /* background-color: #2249282e !important; */
+  background-color: white !important;
   font-size: 12px;
   letter-spacing: 0.1em;
 }
@@ -210,17 +212,14 @@ a {
 
 .projimg {
   width: 75%;
-  /* max-width: 12em; */
+  background-color: #fcfcfc;
   height: 9rem;
   object-fit: cover;
-  padding: 5px;
+  padding: 3px;
 }
 
 .projbox {
   width: 100%;
-  /* max-width: 12em;
-  height: 200px;
-  padding-bottom: 15px; */
 }
 
 .buttonGen {
