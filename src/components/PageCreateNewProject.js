@@ -23,6 +23,35 @@ class PageCreateNewProject extends React.Component {
     this.setState({ tags: [this.props.appSubject] });
   };
 
+  backButton = () => {
+    return (
+      <div className="d-flex justify-content-center">
+        <button
+          className="btn btn-dark padtop3 padbottom"
+          onClick={() => {
+            this.logOut();
+          }}
+        >
+          cancel
+        </button>
+      </div>
+    );
+  };
+
+  // Log out
+  logOut = () => {
+    this.setState({
+      projName: "",
+      caption: "",
+      projectNamed: false,
+      pword: "",
+      loggedIn: false,
+      tagsChosen: false,
+      tags: []
+    });
+    this.props.setPage("home");
+  };
+
   // Authorization check
   // This is TODO for future
   checkAuth = () => {
@@ -33,12 +62,6 @@ class PageCreateNewProject extends React.Component {
       alert("You shouldnt be here");
       this.logOut();
     }
-  };
-
-  // Log out
-  logOut = () => {
-    this.setState({ loggedIn: false, projectNamed: false });
-    this.props.setPage("home");
   };
 
   tagToggleInclude = tag => {
@@ -55,60 +78,67 @@ class PageCreateNewProject extends React.Component {
     }
   };
 
+  // SHOW IF: this.state.loggedIn
+  // Check signIn Auth
   showSignIn = () => {
-    // SHOW IF: this.state.loggedIn
-    // Check signIn Auth
     let signIn = "";
     if (this.state.loggedIn) {
       signIn = <div />;
     } else {
       signIn = (
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            this.checkAuth();
-          }}
-        >
-          <div className="row col-12 nopadbottom padtop3 justify-content-center">
-            <input
-              autoFocus
-              autoCapitalize="off"
-              onChange={e => this.setState({ pword: e.target.value })}
-            />
-            <button type="submit">enter super secret password</button>
-          </div>
-        </form>
+        <div className="borderShadow padInsides d-flex flex-column align-items-center">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.checkAuth();
+            }}
+          >
+            <div className="d-flex flex-column col-12 padtop3 justify-content-center">
+              <input
+                autoFocus
+                autoCapitalize="off"
+                onChange={e => this.setState({ pword: e.target.value })}
+              />
+              <button type="submit">enter super secret password</button>
+            </div>
+          </form>
+        </div>
       );
     }
     return signIn;
   };
 
+  // TOGGLE SUBMIT BUTTON (addProjectName)
+  // Enable button if new project NAMED and DESCRIPTION given
+  handleSubmit = evt => {
+    evt.preventDefault();
+    if (!this.canBeSubmitted()) {
+      return;
+    }
+    this.setState({ projectNamed: true });
+  };
+
+  canBeSubmitted() {
+    const { projects } = this.state;
+    return projects.projName.length > 0 && projects.caption.length > 0;
+  }
+
+  // SHOW IF: this.state.projectNamed === false && loggedIn === true
+  // NAME NEW PROJECT
+  // Input the new project name and caption(description).
+  // When button is pressed, AddImages will open.
+  // When project name entered, it will show in red, without input box.
   addProjectName = () => {
-    // SHOW IF: this.state.projectNamed === false && loggedIn === true
-    // NAME NEW PROJECT
-    // Input the new project name and caption(description).
-    // When button is pressed, AddImages will open.
-    // When project name entered, it will show in red, without input box.
+    const isEnabled = this.canBeSubmitted();
+    const submitButtonMessage = this.canBeSubmitted() ? "submit " : "enter ";
     let addProjName = "";
     if (!this.state.projectNamed && this.state.loggedIn) {
-      // window.scroll(0,230);
       addProjName = (
-        <div className="fullSize borderShadow padInsides d-flex align-items-center flex-column">
-          <button
-            className="buttonGen padtop2"
-            onClick={() => {
-              this.logOut();
-            }}
-          >
-            back
-          </button>
+        <div className="borderShadow padInsides d-flex align-items-center flex-column">
           <h4 className="padtop2">Create New Project</h4>
           <form
             className="padbottom2 d-flex align-items-center flex-column"
-            onSubmit={e => {
-              e.preventDefault();
-              this.setState({ projectNamed: true });
-            }}
+            onSubmit={this.handleSubmit}
           >
             <div className="padtop2">
               <input
@@ -141,7 +171,10 @@ class PageCreateNewProject extends React.Component {
                 /1000
               </div>
             </div>
-            <button>Create new project</button>
+            <button disabled={!isEnabled}>
+              {submitButtonMessage}
+              Name and Description
+            </button>
           </form>
         </div>
       );
@@ -160,11 +193,11 @@ class PageCreateNewProject extends React.Component {
     return addProjName;
   };
 
+  // SHOW IF: projectNamed && !tagsChosen
+  // ADD TAGS
+  // Maps through tags from state.subjects,
+  // When selected, adds them to this.state.tags (sent with image)
   showTags = () => {
-    //SHOW IF: projectNamed && !tagsChosen
-    //ADD TAGS
-    //Maps through tags from state.subjects,
-    //When selected, adds them to this.state.tags (sent with image)
     let chooseTags = "";
     if (
       this.state.projectNamed === true &&
@@ -173,7 +206,7 @@ class PageCreateNewProject extends React.Component {
     ) {
       chooseTags = this.props.subjects.map(tag => {
         return (
-          <div className="m-1" key={tag}>
+          <div className="m-lg-2 p-l-3" key={tag}>
             <button
               className={this.tagToggleClass(tag)}
               onClick={() => this.tagToggleInclude(tag)}
@@ -184,18 +217,21 @@ class PageCreateNewProject extends React.Component {
         );
       });
     }
-    return chooseTags;
+    return (
+      <div className="d-flex flex-wrap justify-content-center borderShadow">
+        {chooseTags}
+      </div>
+    );
   };
 
+  // SHOW IF: this.state.tagsChosen === true && thisPage.
+  // ADD IMAGES component call
+  // Show addImageBox IF new project named
   addImages = () => {
-    // SHOW IF: this.state.tagsChosen === true && thisPage.
-    // ADD IMAGES component call
-    // Show addImageBox IF new project named
     let addImageBox = "";
-    // if (this.state.projectNamed === true && this.state.loggedIn === true) {
+    //IF (projectNamed === true && loggedIn === true) {
     if (this.state.tagsChosen && this.state.loggedIn) {
       addImageBox = (
-        // fullSize borderShadow padInsides d-flex align-items-center flex-column
         <div className="col-12 borderShadow padbottom  d-flex flex-column align-items-center">
           <button
             className="buttonGen padtop2"
@@ -223,28 +259,25 @@ class PageCreateNewProject extends React.Component {
   render() {
     return this.state.thisPage === this.props.pageSelected ? (
       <div className="container">
-        <div>
-          <div className="row flex-column align-items-center">
-            {this.showSignIn()}
-            {this.addProjectName()}
-          </div>
-          <div className="row col-10 offset-1">{this.addImages()}</div>
-          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-            {this.showTags()}
-            {this.state.projectNamed === true &&
-              !this.state.tagsChosen && (
-                <button
-                  className="col-8 button button-secondary"
-                  onClick={() => {
-                    this.setState({
-                      tagsChosen: true
-                    });
-                  }}
-                >
-                  Click here when done
-                </button>
-              )}
-          </div>
+        {this.backButton()}
+        {this.showSignIn()}
+        {this.addProjectName()}
+        <div className="row col-10 offset-1">{this.addImages()}</div>
+        <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
+          {this.showTags()}
+          {this.state.projectNamed === true &&
+            !this.state.tagsChosen && (
+              <button
+                className="col-8 button button-secondary"
+                onClick={() => {
+                  this.setState({
+                    tagsChosen: true
+                  });
+                }}
+              >
+                Click here when done
+              </button>
+            )}
         </div>
       </div>
     ) : (
