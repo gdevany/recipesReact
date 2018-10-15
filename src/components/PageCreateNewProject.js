@@ -81,34 +81,28 @@ class PageCreateNewProject extends React.Component {
   // SHOW IF: this.state.loggedIn
   // Check signIn Auth
   showSignIn = () => {
-    let signIn = "";
-    if (this.state.loggedIn) {
-      signIn = <div />;
-    } else {
-      signIn = (
-        <div className="borderShadow padInsides d-flex flex-column align-items-center">
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              this.checkAuth();
-            }}
-          >
-            <div className="d-flex flex-column col-12 padtop3 justify-content-center">
-              <input
-                autoFocus
-                autoCapitalize="off"
-                onChange={e => this.setState({ pword: e.target.value })}
-              />
-              <button type="submit">enter super secret password</button>
-            </div>
-          </form>
-        </div>
-      );
-    }
-    return signIn;
+    return (
+      <div className="borderShadow padInsides d-flex flex-column align-items-center">
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            this.checkAuth();
+          }}
+        >
+          <div className="d-flex flex-column col-12 padtop3 justify-content-center">
+            <input
+              autoFocus
+              autoCapitalize="off"
+              onChange={e => this.setState({ pword: e.target.value })}
+            />
+            <button type="submit">enter super secret password</button>
+          </div>
+        </form>
+      </div>
+    );
   };
 
-  // TOGGLE SUBMIT BUTTON (addProjectName)
+  // TOGGLE SUBMIT BUTTON (showAddProjectName)
   // Enable button if new project NAMED and DESCRIPTION given
   handleSubmit = evt => {
     evt.preventDefault();
@@ -128,7 +122,7 @@ class PageCreateNewProject extends React.Component {
   // Input the new project name and caption(description).
   // When button is pressed, AddImages will open.
   // When project name entered, it will show in red, without input box.
-  addProjectName = () => {
+  showAddProjectName = () => {
     const isEnabled = this.canBeSubmitted();
     const submitButtonMessage = this.canBeSubmitted() ? "submit " : "enter ";
     let addProjName = "";
@@ -202,7 +196,7 @@ class PageCreateNewProject extends React.Component {
 
     chooseTags = this.props.subjects.map(tag => {
       return (
-        <div className="m-lg-2 p-l-3" key={tag}>
+        <div className="m-md-2" key={tag}>
           <button
             className={this.tagToggleClass(tag)}
             onClick={() => this.tagToggleInclude(tag)}
@@ -214,7 +208,7 @@ class PageCreateNewProject extends React.Component {
     });
 
     return (
-      <div className="text-center">
+      <div className="col-12 col-sm-10 offset-sm-1 justify-content-center text-center">
         select tag(s)
         <div className="d-flex flex-wrap justify-content-center borderShadow">
           {chooseTags}
@@ -238,48 +232,40 @@ class PageCreateNewProject extends React.Component {
   // SHOW IF: this.state.tagsChosen === true && thisPage.
   // ADD IMAGES component call
   // Show addImageBox IF new project named
-  addImages = () => {
-    let addImageBox = "";
-    //IF (projectNamed === true && loggedIn === true) {
-    if (this.state.tagsChosen && this.state.loggedIn) {
-      addImageBox = (
-        <div className="col-12 borderShadow padbottom  d-flex flex-column align-items-center">
-          <button
-            className="buttonGen padtop2"
-            onClick={() => {
-              alert("Please REFRESH page to see the newest addition");
-              this.props.setPage("home");
-              this.logOut();
-            }}
-          >
-            click here when done
-          </button>
-          <AddImages
-            project={this.state.projects.projName}
-            caption={this.state.projects.caption}
-            tags={this.state.tags}
-          />
-        </div>
-      );
-    } else {
-      addImageBox = <div />;
-    }
-    return addImageBox;
+  showAddImages = () => {
+    return (
+      <div className="col-10 offset-1 borderShadow padbottom  d-flex flex-column align-items-center">
+        <button
+          className="buttonGen padtop2"
+          onClick={() => {
+            alert("Please REFRESH page to see the newest addition");
+            this.logOut();
+          }}
+        >
+          click here when done
+        </button>
+        <AddImages
+          project={this.state.projects.projName}
+          caption={this.state.projects.caption}
+          tags={this.state.tags}
+        />
+      </div>
+    );
   };
 
   render() {
     return this.state.thisPage === this.props.pageSelected ? (
       <div className="container">
-        {this.backButton()}
-        {this.showSignIn()}
-        {this.addProjectName()}
-        <div className="row col-10 offset-1">{this.addImages()}</div>
-        <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-          {this.state.projectNamed === true &&
-            !this.state.tagsChosen &&
-            this.state.loggedIn &&
-            this.showTags()}
-        </div>
+        {this.state.tagsChosen && this.state.loggedIn
+          ? null
+          : this.backButton()}
+        {!this.state.loggedIn && this.showSignIn()}
+        {this.showAddProjectName()}
+        {this.state.tagsChosen && this.state.loggedIn && this.showAddImages()}
+        {this.state.projectNamed === true &&
+          !this.state.tagsChosen &&
+          this.state.loggedIn &&
+          this.showTags()}
       </div>
     ) : (
       <div />
