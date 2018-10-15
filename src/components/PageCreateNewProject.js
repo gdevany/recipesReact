@@ -199,27 +199,38 @@ class PageCreateNewProject extends React.Component {
   // When selected, adds them to this.state.tags (sent with image)
   showTags = () => {
     let chooseTags = "";
-    if (
-      this.state.projectNamed === true &&
-      !this.state.tagsChosen &&
-      this.state.loggedIn
-    ) {
-      chooseTags = this.props.subjects.map(tag => {
-        return (
-          <div className="m-lg-2 p-l-3" key={tag}>
-            <button
-              className={this.tagToggleClass(tag)}
-              onClick={() => this.tagToggleInclude(tag)}
-            >
-              {tag}
-            </button>
-          </div>
-        );
-      });
-    }
+
+    chooseTags = this.props.subjects.map(tag => {
+      return (
+        <div className="m-lg-2 p-l-3" key={tag}>
+          <button
+            className={this.tagToggleClass(tag)}
+            onClick={() => this.tagToggleInclude(tag)}
+          >
+            {tag}
+          </button>
+        </div>
+      );
+    });
+
     return (
-      <div className="d-flex flex-wrap justify-content-center borderShadow">
-        {chooseTags}
+      <div className="text-center">
+        select tag(s)
+        <div className="d-flex flex-wrap justify-content-center borderShadow">
+          {chooseTags}
+        </div>
+        <div className="mx-auto text-center">
+          <button
+            className="col-8 button button-secondary padtop mx-auto"
+            onClick={() => {
+              this.setState({
+                tagsChosen: true
+              });
+            }}
+          >
+            Click here when done
+          </button>
+        </div>
       </div>
     );
   };
@@ -264,20 +275,10 @@ class PageCreateNewProject extends React.Component {
         {this.addProjectName()}
         <div className="row col-10 offset-1">{this.addImages()}</div>
         <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-          {this.showTags()}
           {this.state.projectNamed === true &&
-            !this.state.tagsChosen && (
-              <button
-                className="col-8 button button-secondary"
-                onClick={() => {
-                  this.setState({
-                    tagsChosen: true
-                  });
-                }}
-              >
-                Click here when done
-              </button>
-            )}
+            !this.state.tagsChosen &&
+            this.state.loggedIn &&
+            this.showTags()}
         </div>
       </div>
     ) : (
