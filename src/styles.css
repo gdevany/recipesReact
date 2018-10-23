@@ -22,9 +22,8 @@ a {
 }
 
 .currentfont {
-  /* font-family: "Poppins", sans-serif; */
   font-family: "Jura", sans-serif;
-  /* options: 300 regular 500 600 700 */
+  /* options: 300 400 500 600 700 */
   font-weight: 500;
 }
 

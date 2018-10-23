@@ -97,7 +97,7 @@ class ProjectInd extends React.Component {
           <div className="projIndimg">{this.showFullSizeImage()}</div>
           <div className="d-flex col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <div className="col-6 d-flex text-left flex-column">
-              <div className="biggest projtitle">
+              <div className="biggest projtitle text-truncate">
                 {this.props.projectChosen}
               </div>
               <div className="padtop2 padbottom">{this.showDescription()}</div>
