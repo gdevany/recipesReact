@@ -22,7 +22,8 @@ a {
 }
 
 .currentfont {
-  font-family: "Jura", sans-serif;
+  font-family: "SimHei";
+  /* font-family: "Jura", sans-serif; */
   /* options: 300 regular 500 600 700 */
   font-weight: 500;
 }
