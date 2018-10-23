@@ -57,7 +57,7 @@ class PageHome extends React.Component {
   //When button clicked, re-render page with initial search tag
   showErrorMessage = () => {
     const errorButton = (
-      <div className="d-flex justify-content-center padtop3">
+      <div className="d-flex justify-content-center padtop2">
         <button
           className="btn btn-secondary"
           onClick={() =>
