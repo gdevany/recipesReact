@@ -57,7 +57,7 @@ class PageHome extends React.Component {
   //When button clicked, re-render page with initial search tag
   showErrorMessage = () => {
     const errorButton = (
-      <div className="d-flex justify-content-center padtop2">
+      <div className="d-flex justify-content-center padtop3">
         <button
           className="btn btn-secondary"
           onClick={() =>
@@ -131,7 +131,7 @@ class PageHome extends React.Component {
         {this.state.message ? this.showErrorMessage() : null}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
-          <div className="container padtop3">
+          <div className="container padtop2">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">
