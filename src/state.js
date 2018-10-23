@@ -24,7 +24,7 @@ export default {
   projectChosen: "",
   searchTagChosen: "Favorites recipe",
   pageSelected: "home",
-  logo: "ydsyummys.png",
+  logo: "recipesReactLogo2.png",
   cloudName: "gdevany",
   cloudinaryFilePath: "recipes/recipes",
   landingPic: "poolImage3.jpg"

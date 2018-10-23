@@ -193,7 +193,6 @@ class PageCreateNewProject extends React.Component {
   // When selected, adds them to this.state.tags (sent with image)
   showTags = () => {
     let chooseTags = "";
-
     chooseTags = this.props.subjects.map(tag => {
       return (
         <div className="m-md-2" key={tag}>
