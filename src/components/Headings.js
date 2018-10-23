@@ -40,7 +40,7 @@ function Headings(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon black currentfont">menu</span>
+          <span className="navbar-toggler-icon red currentfont">menu</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav tight">{viewIt}</ul>
