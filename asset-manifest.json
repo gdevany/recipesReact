@@ -1,14 +1,15 @@
 {
-  "main.css": "static/css/main.3eb74d27.css",
-  "main.css.map": "static/css/main.3eb74d27.css.map",
-  "main.js": "static/js/main.3e4e3077.js",
-  "main.js.map": "static/js/main.3e4e3077.js.map",
+  "main.css": "static/css/main.8cd3bd87.css",
+  "main.css.map": "static/css/main.8cd3bd87.css.map",
+  "main.js": "static/js/main.6e14fa08.js",
+  "main.js.map": "static/js/main.6e14fa08.js.map",
   "static/media/cupcakes.jpg": "static/media/cupcakes.0f714bbc.jpg",
   "static/media/fontawesome-webfont.eot": "static/media/fontawesome-webfont.674f50d2.eot",
   "static/media/fontawesome-webfont.svg?v=4.7.0": "static/media/fontawesome-webfont.912ec66d.svg",
   "static/media/fontawesome-webfont.ttf?v=4.7.0": "static/media/fontawesome-webfont.b06871f2.ttf",
   "static/media/fontawesome-webfont.woff2?v=4.7.0": "static/media/fontawesome-webfont.af7ae505.woff2",
   "static/media/fontawesome-webfont.woff?v=4.7.0": "static/media/fontawesome-webfont.fee66e71.woff",
+  "static/media/logoSteelImage.png": "static/media/logoSteelImage.1b8d4878.png",
   "static/media/recipesReactLogo2.png": "static/media/recipesReactLogo2.18e6b29b.png",
   "static/media/ydsyummys.png": "static/media/ydsyummys.82ddd318.png"
 }
