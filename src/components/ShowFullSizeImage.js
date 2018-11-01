@@ -1,32 +1,28 @@
 import React from "react";
 import { Image } from "cloudinary-react";
 import PropTypes from "prop-types";
+import { Animated } from "react-animated-css";
 
 // SHOW IF: <ProjectInd /> calls it
 function ShowFullSizeImage(props) {
   window.scroll(0, 0);
   return (
-    <div className="container">
-      <Image
-        cloudName={props.cloudName}
-        publicId={props.image}
-        className="projIndimg"
-      />
-      <span
-        className="topRight white biggest shadow"
-        onClick={props.toggleShow}
-        style={{ cursor: "pointer" }}
-      >
-        X
-      </span>
-      {/* <div className="row">
-        <img
-          src={require(`../pics/${props.logo}`)}
-          className="miniLogo"
-          alt="logo"
+    <Animated animationIn="fadeInDown" animationOut="zoomOut" isVisible={true}>
+      <div className="container">
+        <Image
+          cloudName={props.cloudName}
+          publicId={props.image}
+          className="projIndimg"
         />
-      </div> */}
-    </div>
+        <span
+          className="topRight white biggest shadow"
+          onClick={props.toggleShow}
+          style={{ cursor: "pointer" }}
+        >
+          X
+        </span>
+      </div>
+    </Animated>
   );
 }
 

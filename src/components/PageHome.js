@@ -3,6 +3,7 @@ import axios from "axios";
 import { Image } from "cloudinary-react";
 import ProjectInd from "../containers/ProjectIndContainer";
 import PropTypes from "prop-types";
+import { Animated } from "react-animated-css";
 
 // LANDING PAGE
 class PageHome extends React.Component {
@@ -92,6 +93,11 @@ class PageHome extends React.Component {
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div className="col-6 col-sm-4 col-xl-3" key={proj.public_id}>
+            {/* <Animated
+              animationIn="zoomIn"
+              animationOut="zoomOut"
+              isVisible={true}
+            > */}
             <div className="projbox d-flex flex-column align-items-center padbottom padtop2">
               <Image
                 onClick={() => {
@@ -112,6 +118,7 @@ class PageHome extends React.Component {
                 </small>
               </div>
             </div>
+            {/* </Animated> */}
           </div>
         );
         return viewIt;
@@ -139,9 +146,15 @@ class PageHome extends React.Component {
                     {this.props.searchTagChosen}s
                   </div>
                 </div>
-                <div className="row no-gutters padtop2 projtitle">
-                  {this.showHome()}
-                </div>
+                <Animated
+                  animationIn="zoomIn"
+                  animationOut="zoomOut"
+                  isVisible={true}
+                >
+                  <div className="row no-gutters padtop2 projtitle">
+                    {this.showHome()}
+                  </div>
+                </Animated>
               </div>
             </div>
           </div>

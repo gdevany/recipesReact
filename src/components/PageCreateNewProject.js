@@ -1,6 +1,7 @@
 import React from "react";
 import AddImages from "../containers/AddImagesContainer";
 import PropTypes from "prop-types";
+import { Animated } from "react-animated-css";
 
 class PageCreateNewProject extends React.Component {
   constructor(props) {
@@ -254,18 +255,20 @@ class PageCreateNewProject extends React.Component {
 
   render() {
     return this.state.thisPage === this.props.pageSelected ? (
-      <div className="container">
-        {this.state.tagsChosen && this.state.loggedIn
-          ? null
-          : this.backButton()}
-        {!this.state.loggedIn && this.showSignIn()}
-        {this.showAddProjectName()}
-        {this.state.tagsChosen && this.state.loggedIn && this.showAddImages()}
-        {this.state.projectNamed === true &&
-          !this.state.tagsChosen &&
-          this.state.loggedIn &&
-          this.showTags()}
-      </div>
+      <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
+        <div className="container">
+          {this.state.tagsChosen && this.state.loggedIn
+            ? null
+            : this.backButton()}
+          {!this.state.loggedIn && this.showSignIn()}
+          {this.showAddProjectName()}
+          {this.state.tagsChosen && this.state.loggedIn && this.showAddImages()}
+          {this.state.projectNamed === true &&
+            !this.state.tagsChosen &&
+            this.state.loggedIn &&
+            this.showTags()}
+        </div>
+      </Animated>
     ) : (
       <div />
     );

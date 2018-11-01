@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Animated } from "react-animated-css";
 
 class PageSearch extends Component {
   state = {
@@ -38,14 +39,14 @@ class PageSearch extends Component {
 
   render() {
     return this.props.pageSelected === this.state.thisPage ? (
-      <div className="container">
-        <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
-          {this.activateTags()}
+      <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
+        <div className="container">
+          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
+            {this.activateTags()}
+          </div>
         </div>
-      </div>
-    ) : (
-      <div />
-    );
+      </Animated>
+    ) : null;
   }
 }
 

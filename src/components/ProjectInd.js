@@ -3,6 +3,7 @@ import axios from "axios";
 import { Image } from "cloudinary-react";
 import ShowFullSizeImage from "../containers/ShowFullSizeImageContainer";
 import PropTypes from "prop-types";
+import { Animated } from "react-animated-css";
 
 // SHOW IF: (projectChosen)
 class ProjectInd extends React.Component {
@@ -69,18 +70,24 @@ class ProjectInd extends React.Component {
       // window.scroll(0,230);
       viewIt = this.state.gallery.map(image => {
         return (
-          <Image
-            onClick={() => {
-              this.setState({ imageClicked: image.public_id });
-              this.toggleImageViewerClicked();
-            }}
-            cloudName={this.props.cloudName}
-            publicId={image.public_id}
-            className="projIndimg"
-            quality="10"
-            style={{ cursor: "pointer" }}
-            key={image.public_id}
-          />
+          <Animated
+            animationIn="fadeInDown"
+            animationOut="zoomOut"
+            isVisible={true}
+          >
+            <Image
+              onClick={() => {
+                this.setState({ imageClicked: image.public_id });
+                this.toggleImageViewerClicked();
+              }}
+              cloudName={this.props.cloudName}
+              publicId={image.public_id}
+              className="projIndimg"
+              quality="10"
+              style={{ cursor: "pointer" }}
+              key={image.public_id}
+            />
+          </Animated>
         );
       });
     } else {
@@ -90,14 +97,14 @@ class ProjectInd extends React.Component {
   };
 
   render() {
-    !this.state.imageViewerClicked ? window.scroll(0, 0) : window.scroll(0, 0);
+    window.scroll(0, 0);
     return (
       <div className="container">
         <div className="row black padtop">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
           <div className="d-flex col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <div className="col-6 d-flex text-left flex-column">
-              <div className="biggest projtitle text-truncate">
+              <div className="bigger projtitle text-truncate">
                 {this.props.projectChosen}
               </div>
               <div className="padtop2 padbottom">{this.showDescription()}</div>

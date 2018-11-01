@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Animated } from "react-animated-css";
 
 // SHOW IF: props.pageSelected = "contact"
 function PageContact(props) {
@@ -52,7 +53,7 @@ function PageContact(props) {
   }
 
   return (
-    <div>
+    <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
       <div className="container">
         <div className="row">
           <div className="col-xs-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
@@ -63,7 +64,7 @@ function PageContact(props) {
           </div>
         </div>
       </div>
-    </div>
+    </Animated>
   );
 }
 
