@@ -1,7 +1,7 @@
 export default {
   pages: ["home", "search", "add recipe", "contact"],
   subjects: [
-    "Favorites recipe",
+    "Favorite recipe",
     "Breakfast recipe",
     "Dinner recipe",
     "Dessert recipe",
@@ -22,7 +22,7 @@ export default {
   appSubject: "recipeReact",
   loggedIn: false,
   projectChosen: "",
-  searchTagChosen: "Favorites recipe",
+  searchTagChosen: "Favorite recipe",
   pageSelected: "home",
   // logo: "recipesReactLogo2.png",
   logo: "logoSteelImage.png",
