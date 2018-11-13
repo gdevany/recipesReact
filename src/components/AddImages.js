@@ -13,13 +13,13 @@ class AddImages extends React.Component {
       uploadedFileName: null,
       uploadedFileCloudinaryUrl: "",
       selectedMainImage: false,
-      listOfAllRecipes: [],
+      listOfAllProjects: [],
       fileLoading: false,
       fileLoaded: false
     };
   }
 
-  //Preload a list of all image names (this.state.listOfAllRecipes)
+  //Preload a list of all image names (this.state.listOfAllProjects)
   componentDidMount = () => {
     window.scroll(0, 0);
     axios
@@ -29,14 +29,14 @@ class AddImages extends React.Component {
         }.json`
       )
       .then(res => {
-        let listOfRecipes = [];
+        let listOfProjects = [];
         res.data.resources.map(t => {
           let strippedFileNameIndex = t.public_id.lastIndexOf("/") + 1;
           let strippedFileName = t.public_id.slice(strippedFileNameIndex);
-          listOfRecipes.push(strippedFileName);
+          listOfProjects.push(strippedFileName);
           return null;
         });
-        this.setState({ listOfAllRecipes: listOfRecipes });
+        this.setState({ listOfAllProjects: listOfProjects });
       });
   };
 
@@ -74,13 +74,13 @@ class AddImages extends React.Component {
 
     //strippedFileName = (original name) OR (original name + random#)
     let strippedFileName = this.removeExtension(file.name);
-    if (this.state.listOfAllRecipes.includes(strippedFileName)) {
+    if (this.state.listOfAllProjects.includes(strippedFileName)) {
       strippedFileName = strippedFileName + Math.floor(Math.random() * 1000);
     }
 
-    //Add this file name to state.listOfAllRecipes
+    //Add this file name to state.listOfAllProjects
     this.setState({
-      listOfAllRecipes: [...this.state.listOfAllRecipes, strippedFileName],
+      listOfAllProjects: [...this.state.listOfAllProjects, strippedFileName],
       uploadedFileName: strippedFileName
     });
 
