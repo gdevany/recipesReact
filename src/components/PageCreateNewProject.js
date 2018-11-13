@@ -57,7 +57,7 @@ class PageCreateNewProject extends React.Component {
   // This is TODO for future
   checkAuth = () => {
     let { pword } = this.state;
-    if (pword === "g" || pword === "Gregiscool") {
+    if (pword === "gregiscool" || pword === "Gregiscool") {
       this.setState({ loggedIn: true });
     } else {
       alert("You shouldnt be here");
@@ -214,16 +214,18 @@ class PageCreateNewProject extends React.Component {
           {chooseTags}
         </div>
         <div className="mx-auto text-center">
-          <button
-            className="col-8 button button-secondary padtop mx-auto"
-            onClick={() => {
-              this.setState({
-                tagsChosen: true
-              });
-            }}
-          >
-            Click here when done
-          </button>
+          {this.state.tags.length > 1 && (
+            <button
+              className="col-8 button button-secondary padtop mx-auto"
+              onClick={() => {
+                this.setState({
+                  tagsChosen: true
+                });
+              }}
+            >
+              Click here when done
+            </button>
+          )}
         </div>
       </div>
     );
