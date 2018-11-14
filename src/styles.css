@@ -125,7 +125,7 @@ a {
 }
 
 .borderShadow {
-  box-shadow: 5px 5px 20px -3px #333;
+  box-shadow: 1em 1em 3em -1em #333;
 }
 
 .borderIt {
