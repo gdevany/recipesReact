@@ -114,12 +114,26 @@ class AddImages extends React.Component {
     });
   }
 
+  buttonMessage = () => {
+    let message = this.state.selectedMainImage
+      ? "click here when done"
+      : "cancel";
+    return message;
+  };
+
+  alertMessage = () => {
+    let message = this.state.selectedMainImage
+      ? "Please REFRESH page to see the newest addition"
+      : "Start over";
+    return message;
+  };
+
   showDropzone = () => {
     // SHOW IF: project has been named (this.props.project) && !fileLoading
-    let message = "CLICK HERE (or drag here) to add MAIN project image";
+    let message = "Add MAIN project image";
 
     if (this.state.selectedMainImage === true) {
-      message = "Great! Now add project images";
+      message = "Now add project images";
     }
 
     let viewBox = "";
@@ -128,13 +142,25 @@ class AddImages extends React.Component {
     } else {
       window.scroll(0, 0);
       viewBox = (
-        <div className="d-flex justify-content-center padtop2 padbottom2">
+        <div className="d-flex flex-column align-items-center padtop2 padbottom2">
+          <button
+            className="btn btn-dark padtop3 padbottom"
+            onClick={() => {
+              alert(this.alertMessage());
+              this.logOut();
+            }}
+          >
+            {this.buttonMessage()}
+          </button>
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
             multiple={false}
             accept="image/*"
           >
-            <div className="text-center padInsides">{message}</div>
+            <div className="text-center padInsides">
+              <div className="">CLICK HERE</div>
+              <div className="text-center padInsides">{message}</div>
+            </div>
           </Dropzone>
         </div>
       );

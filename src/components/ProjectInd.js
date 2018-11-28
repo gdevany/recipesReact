@@ -74,6 +74,7 @@ class ProjectInd extends React.Component {
             animationIn="fadeInDown"
             animationOut="zoomOut"
             isVisible={true}
+            key={image.public_id}
           >
             <Image
               onClick={() => {

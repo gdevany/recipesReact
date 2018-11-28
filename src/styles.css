@@ -132,6 +132,10 @@ a {
   border: 1px solid grey;
 }
 
+.lightBorder {
+  border: 1px solid #e2e2e2;
+}
+
 .projtitle {
   padding-bottom: 10px;
   border-bottom: 2px solid rgba(242, 242, 242, 1);

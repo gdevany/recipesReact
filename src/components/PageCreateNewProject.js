@@ -83,7 +83,7 @@ class PageCreateNewProject extends React.Component {
   // Check signIn Auth
   showSignIn = () => {
     return (
-      <div className="borderShadow padInsides d-flex flex-column align-items-center">
+      <div className="lightBorder borderShadow padInsides d-flex flex-column align-items-center">
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -91,12 +91,15 @@ class PageCreateNewProject extends React.Component {
           }}
         >
           <div className="d-flex flex-column col-12 padtop3 justify-content-center">
+            <div>enter super secret password</div>
             <input
               autoFocus
               autoCapitalize="off"
               onChange={e => this.setState({ pword: e.target.value })}
             />
-            <button type="submit">enter super secret password</button>
+            <button className="btn btn-dark padtop2 padbottom" type="submit">
+              submit
+            </button>
           </div>
         </form>
       </div>
@@ -129,17 +132,20 @@ class PageCreateNewProject extends React.Component {
     let addProjName = "";
     if (!this.state.projectNamed && this.state.loggedIn) {
       addProjName = (
-        <div className="borderShadow padInsides d-flex align-items-center flex-column">
+        <div className="lightBorder borderShadow padInsides d-flex align-items-center flex-column">
           <h4 className="padtop2">Create New Project</h4>
           <form
             className="padbottom2 d-flex align-items-center flex-column"
             onSubmit={this.handleSubmit}
           >
-            <div className="padtop2">
+            <div className="d-flex align-self-start padtop2">
+              <div className="red bigger">*</div>
+              <div>name</div>
+            </div>
+            <div className="">
               <input
                 autoFocus
                 size="30"
-                placeholder="Name    *required*"
                 onChange={e => {
                   const project = { projName: e.target.value };
                   this.setState({
@@ -148,9 +154,13 @@ class PageCreateNewProject extends React.Component {
                 }}
               />
             </div>
-            <div className="padtop2 padbottom">
+            <div className="d-flex align-self-start padtop2">
+              <div className="red bigger">*</div>
+              <div>description</div>
+            </div>
+            <div className="padbottom">
               <textarea
-                placeholder="Description    *required*    maxLength=1000 chars"
+                placeholder="maxLength=1000 chars"
                 maxLength="1000"
                 rows="4"
                 cols="30"
@@ -166,7 +176,13 @@ class PageCreateNewProject extends React.Component {
                 /1000
               </div>
             </div>
-            <button disabled={!isEnabled}>
+            <div className="d-flex align-self-start red bigger">
+              * = required
+            </div>
+            <button
+              className="btn btn-dark padtop2 padbottom"
+              disabled={!isEnabled}
+            >
               {submitButtonMessage}
               Name and Description
             </button>
@@ -210,13 +226,13 @@ class PageCreateNewProject extends React.Component {
     return (
       <div className="col-12 col-sm-10 offset-sm-1 justify-content-center text-center">
         select tag(s)
-        <div className="d-flex flex-wrap justify-content-center borderShadow">
+        <div className="d-flex flex-wrap justify-content-center lightBorder borderShadow">
           {chooseTags}
         </div>
         <div className="mx-auto text-center">
           {this.state.tags.length > 1 && (
             <button
-              className="col-8 button button-secondary padtop mx-auto"
+              className="col-8 btn btn-dark padtop2 padbottom mx-auto"
               onClick={() => {
                 this.setState({
                   tagsChosen: true
@@ -236,16 +252,7 @@ class PageCreateNewProject extends React.Component {
   // Show addImageBox IF new project named
   showAddImages = () => {
     return (
-      <div className="col-10 offset-1 borderShadow padbottom  d-flex flex-column align-items-center">
-        <button
-          className="buttonGen padtop2"
-          onClick={() => {
-            alert("Please REFRESH page to see the newest addition");
-            this.logOut();
-          }}
-        >
-          click here when done
-        </button>
+      <div className="col-10 offset-1 lightBorder borderShadow padbottom  d-flex flex-column align-items-center">
         <AddImages
           project={this.state.projects.projName}
           caption={this.state.projects.caption}
