@@ -15,6 +15,14 @@ class PageSearch extends Component {
     this.props.setPageSelect("home");
   };
 
+  setTheSearchTag = e => {
+    this.setState({ searchText: e.target.value });
+  };
+
+  searchFromText = () => {
+    this.setSubject(this.state.searchText);
+  };
+
   activateTags = () => {
     //SHOW IF: thisPage === props.pageSelected
     //Maps through tags from props.subjects,
@@ -40,6 +48,8 @@ class PageSearch extends Component {
   render() {
     return this.props.pageSelected === this.state.thisPage ? (
       <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
+        <input onChange={e => this.setTheSearchTag(e)} />
+        <button onClick={this.searchFromText} />
         <div className="container">
           <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
             {this.activateTags()}
