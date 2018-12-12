@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
     setProjectChosen: proj => {
       dispatch(setProjectChosen(proj));
     },
-    setPageSelect: page => {
+    setPage: page => {
       dispatch(setPageSelect(page));
     },
     setSearchTagChosen: tag => {

@@ -3,7 +3,8 @@ import { Animated } from "react-animated-css";
 
 class PageSearch extends Component {
   state = {
-    thisPage: "search"
+    thisPage: "search",
+    searchText: ""
   };
 
   componentDidMount = () => {
@@ -21,6 +22,7 @@ class PageSearch extends Component {
 
   searchFromText = () => {
     this.setSubject(this.state.searchText);
+    this.setState({ searchText: "" });
   };
 
   activateTags = () => {
@@ -48,10 +50,16 @@ class PageSearch extends Component {
   render() {
     return this.props.pageSelected === this.state.thisPage ? (
       <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
-        <input onChange={e => this.setTheSearchTag(e)} />
-        <button onClick={this.searchFromText}>submit</button>
         <div className="container">
-          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
+          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center padtop3">
+            <input onChange={e => this.setTheSearchTag(e)} autoFocus />
+            {this.state.searchText.length > 0 && (
+              <button className="btn btn-dark" onClick={this.searchFromText}>
+                submit
+              </button>
+            )}
+          </div>
+          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center padtop2">
             {this.activateTags()}
           </div>
         </div>

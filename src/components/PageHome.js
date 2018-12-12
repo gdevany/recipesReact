@@ -55,7 +55,6 @@ class PageHome extends React.Component {
           )
           .then(res => {
             this.setState({ gallery: res.data.resources, message: "" });
-            console.log(res.data.resources);
           })
           .catch(err => {
             this.setState({
@@ -64,12 +63,20 @@ class PageHome extends React.Component {
             this.showErrorMessage();
           });
       } else {
+        //If text search submitted
+        let buildGallery = [];
         this.state.fullGallery.map((subject, index) => {
-          subject.public_id.includes(this.props.searchTagChosen) &&
-            this.setState({ gallery: [...this.state.gallery, subject] });
-
+          if (subject.public_id.includes(this.props.searchTagChosen))
+            buildGallery = [...buildGallery, subject];
           return null;
         });
+        this.setState({ gallery: buildGallery });
+        if (buildGallery.length < 1) {
+          this.setState({
+            message:
+              "Sorry we didn't find anything with that search tag. Click here to continue"
+          });
+        }
       }
     }
   }
@@ -80,8 +87,12 @@ class PageHome extends React.Component {
       <div className="d-flex justify-content-center padtop3">
         <button
           className="btn btn-secondary"
-          onClick={() =>
-            this.props.setSearchTagChosen(this.state.projectMainImageTag)
+          onClick={
+            () => {
+              this.props.setPage("search");
+              this.setState({ message: "" });
+            }
+            // this.props.setSearchTagChosen(this.state.projectMainImageTag)
           }
         >
           {this.state.message}
@@ -123,7 +134,7 @@ class PageHome extends React.Component {
                   this.props.setProjectChosen(
                     this.getProjectName(proj.public_id)
                   );
-                  this.props.setPageSelect("project");
+                  this.props.setPage("project");
                 }}
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}
@@ -197,7 +208,7 @@ PageHome.propTypes = {
   cloudName: PropTypes.string.isRequired,
   pageSelected: PropTypes.string.isRequired,
   setProjectChosen: PropTypes.func.isRequired,
-  setPageSelect: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
   projectChosen: PropTypes.string.isRequired
 };
 
