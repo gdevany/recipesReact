@@ -49,7 +49,7 @@ class PageSearch extends Component {
     return this.props.pageSelected === this.state.thisPage ? (
       <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
         <input onChange={e => this.setTheSearchTag(e)} />
-        <button onClick={this.searchFromText} />
+        <button onClick={this.searchFromText}>submit</button>
         <div className="container">
           <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center">
             {this.activateTags()}

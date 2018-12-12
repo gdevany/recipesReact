@@ -22,7 +22,7 @@ export default {
   appSubject: "recipeReact",
   loggedIn: false,
   projectChosen: "",
-  searchTagChosen: "Favorite recipe",
+  searchTagChosen: "recipehead",
   pageSelected: "home",
   // logo: "recipesReactLogo2.png",
   logo: "logoSteelImage.png",

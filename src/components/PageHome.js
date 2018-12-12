@@ -24,7 +24,7 @@ class PageHome extends React.Component {
     axios
       .get(
         `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
-          this.props.searchTagChosen
+          this.props.projectMainImageTag
         }.json`
       )
       .then(res => {
@@ -62,7 +62,7 @@ class PageHome extends React.Component {
         <button
           className="btn btn-secondary"
           onClick={() =>
-            this.props.setSearchTagChosen(this.state.initialSearchTag)
+            this.props.setSearchTagChosen(this.state.projectMainImageTag)
           }
         >
           {this.state.message}
@@ -129,6 +129,14 @@ class PageHome extends React.Component {
     return projs;
   };
 
+  showTitle = () => {
+    const title =
+      this.props.searchTagChosen === this.props.projectMainImageTag
+        ? "All recipe"
+        : this.props.searchTagChosen;
+    return title;
+  };
+
   render() {
     if (this.props.pageSelected === this.state.thisPage) {
       window.scroll(0, 0);
@@ -143,7 +151,7 @@ class PageHome extends React.Component {
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">
                   <div className="bigger spread text-left padtop2 m-2">
-                    {this.props.searchTagChosen}s
+                    {this.showTitle()}s
                   </div>
                 </div>
                 <Animated
