@@ -14,6 +14,7 @@ class PageHome extends React.Component {
       initialSearchTag: this.props.searchTagChosen,
       message: "",
       gallery: [],
+      fullGallery: [],
       projectFile: this.props.cloudinaryPojectFile,
       projectMainImageTag: this.props.projectMainImageTag
     };
@@ -28,7 +29,10 @@ class PageHome extends React.Component {
         }.json`
       )
       .then(res => {
-        this.setState({ gallery: res.data.resources });
+        this.setState({
+          gallery: res.data.resources,
+          fullGallery: res.data.resources
+        });
         console.log(res.data.resources);
       });
     window.scroll(0, 0);
@@ -37,21 +41,36 @@ class PageHome extends React.Component {
   //LOAD PROJECTS: When search tag changes
   componentDidUpdate(prevProps) {
     if (this.props.searchTagChosen !== prevProps.searchTagChosen) {
-      axios
-        .get(
-          `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
-            this.props.searchTagChosen
-          }.json`
-        )
-        .then(res => {
-          this.setState({ gallery: res.data.resources, message: "" });
-        })
-        .catch(err => {
-          this.setState({
-            message: `Sorry we didn't find anything with that search tag. Click here to continue`
+      this.setState({ gallery: [] });
+      //If tag selected,...
+      if (
+        this.props.subjects.indexOf(this.props.searchTagChosen) !== -1 ||
+        this.props.searchTagChosen === this.state.projectMainImageTag
+      ) {
+        axios
+          .get(
+            `https://res.cloudinary.com/${this.props.cloudName}/image/list/${
+              this.props.searchTagChosen
+            }.json`
+          )
+          .then(res => {
+            this.setState({ gallery: res.data.resources, message: "" });
+            console.log(res.data.resources);
+          })
+          .catch(err => {
+            this.setState({
+              message: `Sorry we didn't find anything with that search tag. Click here to continue`
+            });
+            this.showErrorMessage();
           });
-          this.showErrorMessage();
+      } else {
+        this.state.fullGallery.map((subject, index) => {
+          subject.public_id.includes(this.props.searchTagChosen) &&
+            this.setState({ gallery: [...this.state.gallery, subject] });
+
+          return null;
         });
+      }
     }
   }
   //SHOWIF: Search returns error
@@ -143,7 +162,7 @@ class PageHome extends React.Component {
     }
     return (
       <div>
-        {this.state.message ? this.showErrorMessage() : null}
+        {this.state.message === "" ? null : this.showErrorMessage()}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
           <div className="container padtop2">

@@ -8,7 +8,7 @@ import PageHome from "../components/PageHome";
 
 function mapStateToProps(state) {
   return {
-    projects: state.projects,
+    subjects: state.subjects,
     loggedIn: state.loggedIn,
     pageSelected: state.pageSelected,
     projectChosen: state.projectChosen,
