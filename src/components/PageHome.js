@@ -63,10 +63,11 @@ class PageHome extends React.Component {
             this.showErrorMessage();
           });
       } else {
-        //If text search submitted
+        //If text search submitted...
         let buildGallery = [];
         this.state.fullGallery.map((subject, index) => {
-          if (subject.public_id.includes(this.props.searchTagChosen))
+          let idToLowerCase = subject.public_id.toLowerCase();
+          if (idToLowerCase.includes(this.props.searchTagChosen))
             buildGallery = [...buildGallery, subject];
           return null;
         });
