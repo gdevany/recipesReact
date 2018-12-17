@@ -67,7 +67,8 @@ class PageHome extends React.Component {
         let buildGallery = [];
         this.state.fullGallery.map((subject, index) => {
           let idToLowerCase = subject.public_id.toLowerCase();
-          if (idToLowerCase.includes(this.props.searchTagChosen))
+          let searchTagChosenToLowerCase = this.props.searchTagChosen.toLowerCase();
+          if (idToLowerCase.includes(searchTagChosenToLowerCase))
             buildGallery = [...buildGallery, subject];
           return null;
         });
