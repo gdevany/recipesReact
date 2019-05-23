@@ -83,7 +83,7 @@ class ProjectInd extends React.Component {
               }}
               cloudName={this.props.cloudName}
               publicId={image.public_id}
-              className="projIndimg"
+              className="projIndimg rounded"
               quality="10"
               style={{ cursor: "pointer" }}
               key={image.public_id}
@@ -103,18 +103,16 @@ class ProjectInd extends React.Component {
       <div className="container">
         <div className="row black padtop">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
-          <div className="d-flex col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div className="col-6 d-flex text-left flex-column">
+            <div className="col-12 col-md-6 d-flex text-left flex-column">
               <div className="bigger projtitle text-truncate">
                 {this.props.projectChosen}
               </div>
               <div className="padtop2 padbottom">{this.showDescription()}</div>
             </div>
-            <div className="offset-1 col-5 d-flex flex-column text-center">
+            <div className="col-12 offset-md-1 col-md-5 d-flex flex-column text-center align-items-center">
               <small>Click image to toggle full size & quality</small>
-              <div>{this.showProjInd()}</div>
+              {this.showProjInd()}
             </div>
-          </div>
         </div>
       </div>
     );
@@ -127,3 +125,26 @@ ProjectInd.propTypes = {
 };
 
 export default ProjectInd;
+
+// render() {
+//   window.scroll(0, 0);
+//   return (
+//     <div className="container">
+//       <div className="row black padtop">
+//         <div className="projIndimg">{this.showFullSizeImage()}</div>
+//         <div className="d-flex col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+//           <div className="col-12 col-md-6 d-flex text-left flex-column">
+//             <div className="bigger projtitle text-truncate">
+//               {this.props.projectChosen}
+//             </div>
+//             <div className="padtop2 padbottom">{this.showDescription()}</div>
+//           </div>
+//           <div className="col-12 offset-md-1 col-md-5 d-flex flex-column text-center align-items-center">
+//             <small>Click image to toggle full size & quality</small>
+//             {this.showProjInd()}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

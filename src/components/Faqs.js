@@ -15,34 +15,26 @@ function Faqs(props) {
               offset-lg-3 col-lg-6 projtitle padtop2">
               <div className="big">Customer Satisfaction</div>
               <div className="text-left">
-                Our overall mission is customer satisfaction. From the first meeting
-                until the customer jumps in the water, we want to make sure they
-                are clear on what phase we are currently on and what comes next.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Gravida neque convallis a cras semper auctor. Vivamus at augue eget arcu dictum varius duis at consectetur. Integer eget aliquet nibh praesent tristique magna. Sodales ut eu sem integer vitae. Gravida rutrum quisque non tellus orci ac auctor augue mauris.
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
-                <div className="big red">how do we plan the design of the pool?</div>
+                <div className="big red">Netus et malesuada fames ac?</div>
                 <div className="">
-                  our in house designers will walk you through the process using
-                  state of the art digital cad. We will determine if a straight
-                  edge or free form design works better.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Gravida neque convallis a cras semper auctor. Vivamus at augue eget arcu dictum varius duis at consectetur. Integer eget aliquet nibh praesent tristique magna. Sodales ut eu sem integer vitae. Gravida rutrum quisque non tellus orci ac auctor augue mauris.
                 </div>
               </div>
               <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
-                <div className="big red">how much does the pool cost?</div>
+                <div className="big red">Netus et malesuada fames ac?</div>
                 <div className="">
-                  every pool has it's own challenges during the construction
-                  process. Our experienced project estimators have a track record
-                  of 8% difference between estimates and actual costs.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Gravida neque convallis a cras semper auctor. Vivamus at augue eget arcu dictum varius duis at consectetur. Integer eget aliquet nibh praesent tristique magna. Sodales ut eu sem integer vitae. Gravida rutrum quisque non tellus orci ac auctor augue mauris.
                 </div>
               </div>
               <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
-                <div className="big red">can we pay for the pool on our credit card?</div>
+                <div className="big red">Netus et malesuada fames ac?</div>
                 <div className="">
-                  we have had several customers pay for their phase drafts on their
-                  credit cards. However, there will be an additional cost to cover
-                  the interchange costs.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Gravida neque convallis a cras semper auctor. Vivamus at augue eget arcu dictum varius duis at consectetur. Integer eget aliquet nibh praesent tristique magna. Sodales ut eu sem integer vitae. Gravida rutrum quisque non tellus orci ac auctor augue mauris.
                 </div>
               </div>
             </div>

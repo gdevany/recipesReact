@@ -86,7 +86,7 @@ class PageHome extends React.Component {
   //When button clicked, re-render page with initial search tag
   showErrorMessage = () => {
     const errorButton = (
-      <div className="d-flex justify-content-center padtop3">
+      <div className="d-flex justify-content-center pt-5">
         <button
           className="btn btn-secondary"
           onClick={
@@ -124,8 +124,8 @@ class PageHome extends React.Component {
     ) {
       projs = this.state.gallery.map(proj => {
         viewIt = (
-          <div className="projbox p-1 col-6 col-sm-4 col-xl-3" key={proj.public_id}>
-            <div className="d-flex flex-column align-items-center padbottom pt-2">
+          <div className="projbox col-6 col-sm-4 col-xl-3" key={proj.public_id}>
+            <div className="d-flex flex-column align-items-center pt-4">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(
@@ -136,7 +136,7 @@ class PageHome extends React.Component {
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}
                 style={{ cursor: "pointer" }}
-                className="projimg borderShadow rounded"
+                className="projimg projImageShadow rounded"
                 quality="10"
               />
               <div className="pt-3 text-center">
@@ -173,11 +173,11 @@ class PageHome extends React.Component {
         {this.state.message === "" ? null : this.showErrorMessage()}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
-          <div className="container padtop2">
+          <div className="container pt-4">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">
-                  <div className="bigger spread text-left padtop2 m-2">
+                  <div className="bigger spread text-left m-2">
                     {this.showTitle()}s
                   </div>
                 </div>
@@ -186,7 +186,7 @@ class PageHome extends React.Component {
                   animationOut="zoomOut"
                   isVisible={true}
                 >
-                  <div className="row no-gutters padtop2 projtitle">
+                  <div className="row no-gutters pt-4 projtitle">
                     {this.showHome()}
                   </div>
                 </Animated>
