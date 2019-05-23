@@ -124,13 +124,8 @@ class PageHome extends React.Component {
     ) {
       projs = this.state.gallery.map(proj => {
         viewIt = (
-          <div className="col-6 col-sm-4 col-xl-3" key={proj.public_id}>
-            {/* <Animated
-              animationIn="zoomIn"
-              animationOut="zoomOut"
-              isVisible={true}
-            > */}
-            <div className="projbox d-flex flex-column align-items-center padbottom padtop2">
+          <div className="projbox p-1 col-6 col-sm-4 col-xl-3" key={proj.public_id}>
+            <div className="d-flex flex-column align-items-center padbottom pt-2">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(
@@ -141,10 +136,10 @@ class PageHome extends React.Component {
                 cloudName={this.props.cloudName}
                 publicId={proj.public_id}
                 style={{ cursor: "pointer" }}
-                className="projimg borderShadow"
+                className="projimg borderShadow rounded"
                 quality="10"
               />
-              <div className="padtop text-center">
+              <div className="pt-3 text-center">
                 <small className="currentfont">
                   {this.getProjectName(proj.public_id)}
                 </small>
