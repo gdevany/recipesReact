@@ -82,6 +82,11 @@ a {
   opacity: 1;
 }
 
+.shortLine {
+  line-height: 1.0rem;
+  max-width: 10em;
+}
+
 .white {
   color: white;
 }
@@ -214,11 +219,12 @@ a {
 }
 
 .projimg {
-  width: 75%;
+  width: 90%;
   /* background-color: #f2f2f2; */
   background-color: #fcfcfc;
   height: 9rem;
   object-fit: cover;
+  max-width: 12em;
   /* padding: 3px; */
 }
 

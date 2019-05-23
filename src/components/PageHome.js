@@ -139,7 +139,7 @@ class PageHome extends React.Component {
                 className="projimg projImageShadow rounded"
                 quality="10"
               />
-              <div className="pt-3 text-center">
+              <div className="shortLine pt-2 text-center">
                 <small className="currentfont">
                   {this.getProjectName(proj.public_id)}
                 </small>
