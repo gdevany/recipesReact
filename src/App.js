@@ -9,21 +9,22 @@ import PageSearch from "./containers/PageSearchContainer";
 
 // import LandingPage from "./containers/LandingPageContainer";
 
-
 function App(props) {
   if (props.theme === 'theme-light') {
     console.log('yes')
   }
   return (
-    <div className="theme-light">
+    <div className={props.theme}>
       <Logo />
       <Headings />
       {/* <LandingPage /> */}
+      <div className="main-container">
       <PageHome />
       <PageSearch />
       <PageContact />
       <PageCreateNewProject />
       <Footer />
+      </div>
     </div>
   );
 }

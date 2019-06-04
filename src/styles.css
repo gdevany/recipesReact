@@ -13,37 +13,33 @@ a {
 }
 
 .row {
-  /* margin-right: 0;
-  margin-left: 0; */
+  /* margin-right: 0 !important;
+  margin-left: 0 !important; */
 }
 
 .container {
-  padding: 0;
+  /* padding: 0 !important; */
   width: 100%;
+}
+
+.main-container {
+  min-height: 800px;
 }
 
 .theme-light {
   font-family: "Jura", sans-serif;
   /* options: 300 400 500 600 700 */
   font-weight: 500;
-  /* for testing purposes: */
-  /* background-color: black !important; */
-  /* color: #fcfcfc; */
   background-color: #fcfcfc !important;
   color: black;
-    /* */
 }
 
 .theme-dark {
   font-family: "Jura", sans-serif;
   /* options: 300 400 500 600 700 */
   font-weight: 500;
-  /* for testing purposes: */
-  background-color: black !important;
+  background-color: #000000c7 !important;
   color: #fcfcfc;
-  /* background-color: #fcfcfc !important; */
-  /* color: black; */
-    /* */
 }
 
 .logoBackground {
@@ -278,7 +274,7 @@ a {
 .padtopshort {
   margin-top: 5px;
 }
-
+/* 
 .padtop {
   margin-top: 10px;
 }
@@ -310,7 +306,7 @@ a {
 .padsides {
   margin-right: 10px;
   margin-left: 10px;
-}
+} */
 
 .overflows {
   overflow: hidden;

@@ -28,7 +28,7 @@ class PageCreateNewProject extends React.Component {
     return (
       <div className="d-flex justify-content-center">
         <button
-          className="btn btn-dark padtop3 padbottom"
+          className="btn btn-dark py-5"
           onClick={() => {
             this.logOut();
           }}
@@ -83,21 +83,21 @@ class PageCreateNewProject extends React.Component {
   // Check signIn Auth
   showSignIn = () => {
     return (
-      <div className="lightBorder borderShadow padInsides d-flex flex-column align-items-center">
+      <div className="lightBorder borderShadow p-3 d-flex flex-column align-items-center">
         <form
           onSubmit={e => {
             e.preventDefault();
             this.checkAuth();
           }}
         >
-          <div className="d-flex flex-column col-12 padtop3 justify-content-center">
+          <div className="d-flex flex-column col-12 pt-5 justify-content-center">
             <div>enter super secret password</div>
             <input
               autoFocus
               autoCapitalize="off"
               onChange={e => this.setState({ pword: e.target.value })}
             />
-            <button className="btn btn-dark padtop2 padbottom" type="submit">
+            <button className="btn btn-dark py-3" type="submit">
               submit
             </button>
           </div>
@@ -132,13 +132,13 @@ class PageCreateNewProject extends React.Component {
     let addProjName = "";
     if (!this.state.projectNamed && this.state.loggedIn) {
       addProjName = (
-        <div className="lightBorder borderShadow padInsides d-flex align-items-center flex-column">
-          <h4 className="padtop2">Create New Project</h4>
+        <div className="lightBorder borderShadow p-2 d-flex align-items-center flex-column">
+          <h4 className="pt-3">Create New Project</h4>
           <form
-            className="padbottom2 d-flex align-items-center flex-column"
+            className="pb-3 d-flex align-items-center flex-column"
             onSubmit={this.handleSubmit}
           >
-            <div className="d-flex align-self-start padtop2">
+            <div className="d-flex align-self-start pt-3">
               <div className="red bigger">*</div>
               <div>name</div>
             </div>
@@ -154,11 +154,11 @@ class PageCreateNewProject extends React.Component {
                 }}
               />
             </div>
-            <div className="d-flex align-self-start padtop2">
+            <div className="d-flex align-self-start pt-3">
               <div className="red bigger">*</div>
               <div>description</div>
             </div>
-            <div className="padbottom">
+            <div className="pb-2">
               <textarea
                 placeholder="maxLength=1000 chars"
                 maxLength="1000"
@@ -180,7 +180,7 @@ class PageCreateNewProject extends React.Component {
               * = required
             </div>
             <button
-              className="btn btn-dark padtop2 padbottom"
+              className="btn btn-dark py-3"
               disabled={!isEnabled}
             >
               {submitButtonMessage}
@@ -194,7 +194,7 @@ class PageCreateNewProject extends React.Component {
       this.state.loggedIn === true
     ) {
       addProjName = (
-        <div className="red-title padbottom text-center">
+        <div className="red-title pb-3 text-center">
           {this.state.projects.projName}
         </div>
       );
@@ -232,7 +232,7 @@ class PageCreateNewProject extends React.Component {
         <div className="mx-auto text-center">
           {this.state.tags.length > 1 && (
             <button
-              className="col-8 btn btn-dark padtop2 padbottom mx-auto"
+              className="col-8 btn btn-dark py-3 mx-auto"
               onClick={() => {
                 this.setState({
                   tagsChosen: true
@@ -252,7 +252,7 @@ class PageCreateNewProject extends React.Component {
   // Show addImageBox IF new project named
   showAddImages = () => {
     return (
-      <div className="col-10 offset-1 lightBorder borderShadow padbottom  d-flex flex-column align-items-center">
+      <div className="col-10 offset-1 lightBorder borderShadow pb-3  d-flex flex-column align-items-center">
         <AddImages
           project={this.state.projects.projName}
           caption={this.state.projects.caption}

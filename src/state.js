@@ -1,5 +1,5 @@
 export default {
-  theme: "theme-light",
+  theme: "theme-dark",
   pages: ["home", "search", "add recipe", "contact"],
   subjects: [
     "favorite recipe",

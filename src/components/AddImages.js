@@ -142,9 +142,9 @@ class AddImages extends React.Component {
     } else {
       window.scroll(0, 0);
       viewBox = (
-        <div className="d-flex flex-column align-items-center padtop2 padbottom2">
+        <div className="d-flex flex-column align-items-center py-3">
           <button
-            className="btn btn-dark padtop3 padbottom"
+            className="btn btn-dark pt-5 pb-2"
             onClick={() => {
               alert(this.alertMessage());
               this.logOut();
@@ -157,9 +157,9 @@ class AddImages extends React.Component {
             multiple={false}
             accept="image/*"
           >
-            <div className="text-center padInsides">
+            <div className="text-center p-3">
               <div className="">CLICK HERE</div>
-              <div className="text-center padInsides">{message}</div>
+              <div className="text-center p-3">{message}</div>
             </div>
           </Dropzone>
         </div>
@@ -181,7 +181,7 @@ class AddImages extends React.Component {
     this.state.uploadedFileCloudinaryUrl === ""
       ? (viewIt = <div />)
       : (viewIt = (
-          <div className="d-flex flex-column align-items-center padbottom2">
+          <div className="d-flex flex-column align-items-center pb-3">
             <p>Confirmation Image: </p>
             <p>{this.state.uploadedFileName}</p>
             <img

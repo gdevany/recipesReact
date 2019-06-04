@@ -169,11 +169,11 @@ class PageHome extends React.Component {
       window.scroll(0, 0);
     }
     return (
-      <div>
+      <div className="">
         {this.state.message === "" ? null : this.showErrorMessage()}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
-          <div className="theme-light container pt-4">
+          <div className="container pt-4">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">
