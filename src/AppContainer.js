@@ -1,27 +1,20 @@
-// This module not in use currently
-/* eslint-disable */
-
 import {connect} from "react-redux";
-import {handleSignIn, handleSignOut, handleSignUp, handleSubmit} from "./actions";
-import AppSign from "./AppSign";
 import App from "./App";
+import {setTheme} from "./actions";
 
+
+function mapStateToProps(state) {
+  return {
+    theme: state.theme,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSignIn() {
-      dispatch(handleSignIn())
-    },
-    handleSignOut() {
-      dispatch(handleSignOut())
-    },
-    handleSignUp() {
-      dispatch(handleSignUp())
-    },
-    handleSubmit() {
-      dispatch(handleSubmit())
+    setTheme: (theme) => {
+      dispatch(setTheme(theme));
     }
-  }
+  };
 }
 
-export default connect(null, mapDispatchToProps);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

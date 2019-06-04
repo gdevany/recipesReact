@@ -140,7 +140,7 @@ class PageHome extends React.Component {
                 quality="10"
               />
               <div className="shortLine pt-2 text-center">
-                <small className="currentfont">
+                <small className="">
                   {this.getProjectName(proj.public_id)}
                 </small>
               </div>
@@ -159,7 +159,7 @@ class PageHome extends React.Component {
   showTitle = () => {
     const title =
       this.props.searchTagChosen === this.props.projectMainImageTag
-        ? "All recipe"
+        ? "all recipe"
         : this.props.searchTagChosen;
     return title;
   };
@@ -173,7 +173,7 @@ class PageHome extends React.Component {
         {this.state.message === "" ? null : this.showErrorMessage()}
         {this.props.projectChosen === "" ? null : <ProjectInd />}
         {this.props.pageSelected !== this.state.thisPage ? null : (
-          <div className="container pt-4">
+          <div className="theme-light container pt-4">
             <div className="row">
               <div className="col-12 offset-lg-1 col-lg-10">
                 <div className="row no-gutters projtitle">

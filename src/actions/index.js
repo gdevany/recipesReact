@@ -25,3 +25,10 @@ export function setSearchTagChosen(tag) {
     value: tag
   };
 }
+
+export function setTheme(theme) {
+  return {
+    type: "SET_THEME",
+    value: theme
+  };
+}

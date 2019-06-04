@@ -9,13 +9,13 @@ import PageSearch from "./containers/PageSearchContainer";
 
 // import LandingPage from "./containers/LandingPageContainer";
 
-// compoonentWillMount() {
-//
-// }
 
-function App() {
+function App(props) {
+  if (props.theme === 'theme-light') {
+    console.log('yes')
+  }
   return (
-    <div className="currentfont padbottom2 padtop2">
+    <div className="theme-light">
       <Logo />
       <Headings />
       {/* <LandingPage /> */}

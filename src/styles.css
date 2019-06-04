@@ -1,8 +1,9 @@
 body {
-  /* background-color: #87c5ba57 !important; */
-  background-color: #fcfcfc !important;
-  /* background-color: #2249282e !important; */
-  /* background-color: white !important; */
+    /* for testing purposes: */
+  /* background-color: black !important; */
+  /* background-color: #fcfcfc !important; */
+  /* color: white; */
+    /* */
   font-size: 12px;
   letter-spacing: 0.1em;
 }
@@ -12,8 +13,8 @@ a {
 }
 
 .row {
-  margin-right: 0;
-  margin-left: 0;
+  /* margin-right: 0;
+  margin-left: 0; */
 }
 
 .container {
@@ -21,10 +22,28 @@ a {
   width: 100%;
 }
 
-.currentfont {
+.theme-light {
   font-family: "Jura", sans-serif;
   /* options: 300 400 500 600 700 */
   font-weight: 500;
+  /* for testing purposes: */
+  /* background-color: black !important; */
+  /* color: #fcfcfc; */
+  background-color: #fcfcfc !important;
+  color: black;
+    /* */
+}
+
+.theme-dark {
+  font-family: "Jura", sans-serif;
+  /* options: 300 400 500 600 700 */
+  font-weight: 500;
+  /* for testing purposes: */
+  background-color: black !important;
+  color: #fcfcfc;
+  /* background-color: #fcfcfc !important; */
+  /* color: black; */
+    /* */
 }
 
 .logoBackground {
@@ -73,9 +92,14 @@ a {
   opacity: 0.5;
 }
 
-.fade-bold {
-  color: red;
+.red-title {
+  color: red !important;
   font-size: 18px;
+}
+
+.dark-title {
+  color: black !important;
+  font-size: 15px;
 }
 
 .fade-none {

@@ -194,7 +194,7 @@ class PageCreateNewProject extends React.Component {
       this.state.loggedIn === true
     ) {
       addProjName = (
-        <div className="fade-bold padbottom text-center">
+        <div className="red-title padbottom text-center">
           {this.state.projects.projName}
         </div>
       );

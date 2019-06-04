@@ -79,6 +79,14 @@ function landingPic(state = "", action) {
 }
 
 // Will change:
+
+function theme(state = "", action) {
+  if (action.type === "SET_THEME") {
+    return action.value
+  }
+  return state;
+}
+
 function projectChosen(state = "", action) {
   if (action.type === "PROJECT_CHOSEN") {
     return action.value;
@@ -126,6 +134,7 @@ const rootReducer = combineReducers({
   CLOUDINARY_UPLOAD_URL,
   landingPic,
   cloudName,
+  theme,
   projectChosen,
   pageSelected,
   loggedIn,

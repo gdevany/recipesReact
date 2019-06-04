@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import AppContainer from "./AppContainer";
 import "font-awesome/css/font-awesome.css";
 import "./styles.css";
 import { Provider } from "react-redux";
@@ -22,7 +22,7 @@ window.fetch = function fetch(url, settings) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById("root")
 );

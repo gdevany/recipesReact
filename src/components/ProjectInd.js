@@ -101,7 +101,7 @@ class ProjectInd extends React.Component {
     window.scroll(0, 0);
     return (
       <div className="container">
-        <div className="row black padtop">
+        <div className="row padtop">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
             <div className="col-12 col-md-6 d-flex text-left flex-column">
               <div className="bigger projtitle text-truncate">

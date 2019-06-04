@@ -9,17 +9,15 @@ function Logo(props) {
   };
 
   let viewIt = "";
-  if (props.pageSelected !== "fdgsdf") {
     viewIt = (
       <div className="row">
-        <div className="d-flex justify-content-center col-12">
+        <div className="d-flex justify-content-center col-12 pt-4">
           <div className="seclogo">
             <div style={logoImg} className="logoinit" />
           </div>
         </div>
       </div>
     );
-  }
 
   return <div className="container-fluid logoBackground">{viewIt}</div>;
 }

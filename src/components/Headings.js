@@ -7,7 +7,8 @@ function Headings(props) {
   let viewIt = "";
   let boldIt = "";
   viewIt = props.pages.map((p, i) => {
-    boldIt = props.pageSelected === p ? "nav-link fade-bold" : "nav-link";
+    // If this page is pageSelected, color it, other-wise, don't.
+    boldIt = props.pageSelected === p ? "nav-link red-title" : "nav-link dark-title";
     return (
       <li className="nav-item" key={i}>
         <div
@@ -32,7 +33,7 @@ function Headings(props) {
     <div className="logoBackground d-flex container-fluid justify-content-center">
       <nav className="row justify-content-center navbar navbar-expand-sm">
         <button
-          className="navbar-toggler fade-bold"
+          className="navbar-toggler red-title"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -40,7 +41,7 @@ function Headings(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon red currentfont">menu</span>
+          <span className="navbar-toggler-icon red">menu</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav tight">{viewIt}</ul>

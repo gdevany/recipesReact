@@ -9,11 +9,11 @@ function PageContact(props) {
     window.scroll(0, 0);
     viewIt = (
       <div>
-        <div className="container padbottom2 projtitle">
+        <div className="container pb-3 projtitle">
           <div className="row">
             <div
               className="offset-xs-1 col-xs-10 offset-md-2 col-md-8
-              offset-lg-3 col-lg-6 projtitle padtop2"
+              offset-lg-3 col-lg-6 projtitle py-3"
             >
               <div className="bigger">Devany</div>
               <div className="text-left">
@@ -22,26 +22,26 @@ function PageContact(props) {
               </div>
             </div>
             <div className="row">
-              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
+              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left pt-5">
                 <div className="bigger red">
                   <i className="fa fa-phone" aria-hidden="true" />
                   phone
                 </div>
                 <div className="">512-587-9285</div>
               </div>
-              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
+              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left pt-5">
                 <div className="bigger red">
                   <i className="fa fa-envelope-o" aria-hidden="true" />
                   email
                 </div>
                 <div className="">greg.devany@yahoo.com</div>
               </div>
-              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left padtop3">
+              <div className="col-xs-12 offset-lg-1 col-lg-10 text-left pt-5">
                 <div className="bigger red">
                   <i className="fa fa-twitter" aria-hidden="true" />
                   twitter
                 </div>
-                <div className="">#noTwitter</div>
+                <div className="pb-5">#noTwitter</div>
               </div>
             </div>
           </div>
@@ -54,10 +54,10 @@ function PageContact(props) {
 
   return (
     <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
-      <div className="container">
+      <div className="container pt-4">
         <div className="row">
           <div className="col-xs-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
-            <div className="bigger projtitle d-flex text-left padtop2">
+            <div className="bigger projtitle d-flex text-left">
               contact us
             </div>
             <div>{viewIt}</div>
