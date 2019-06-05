@@ -1,9 +1,4 @@
 body {
-    /* for testing purposes: */
-  /* background-color: black !important; */
-  /* background-color: #fcfcfc !important; */
-  /* color: white; */
-    /* */
   font-size: 12px;
   letter-spacing: 0.1em;
 }
@@ -136,6 +131,7 @@ a {
 
 .navbar {
   font-size: 15px;
+  padding: 0 !important;
 }
 
 .navbar-toggler-icon {

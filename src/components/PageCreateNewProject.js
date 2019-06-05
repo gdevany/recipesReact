@@ -28,7 +28,7 @@ class PageCreateNewProject extends React.Component {
     return (
       <div className="d-flex justify-content-center">
         <button
-          className="btn btn-dark py-5"
+          className="btn btn-dark my-5"
           onClick={() => {
             this.logOut();
           }}
@@ -97,7 +97,7 @@ class PageCreateNewProject extends React.Component {
               autoCapitalize="off"
               onChange={e => this.setState({ pword: e.target.value })}
             />
-            <button className="btn btn-dark py-3" type="submit">
+            <button className="btn btn-dark my-3" type="submit">
               submit
             </button>
           </div>
