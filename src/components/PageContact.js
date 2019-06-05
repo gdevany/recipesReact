@@ -46,7 +46,7 @@ function PageContact(props) {
 
   return (
     <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
-      <div className="container pt-4">
+      <div className="container pt-5">
         <div className="row">
           <div className="col-12 offset-lg-1 col-lg-10">
             <div className="row no-gutters projtitle bigger spread text-left m-2">

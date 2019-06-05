@@ -12,7 +12,7 @@ function Headings(props) {
     // If this page is pageSelected, color it, other-wise, don't.
     boldIt = props.pageSelected === p ? "nav-link red-title" : "nav-link dark-title";
     return (
-      <li className="nav-item" key={i}>
+      <li className="nav-item px-2" key={i}>
         <div
           aria-haspopup="true"
           aria-expanded="false"

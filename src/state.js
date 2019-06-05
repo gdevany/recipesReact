@@ -1,6 +1,6 @@
 export default {
   theme: "theme-dark",
-  pages: ["home", "search", "add recipe", "contact"],
+  pages: ["home", "search", "add recipe", "contact", "theme"],
   subjects: [
     "favorite recipe",
     "breakfast recipe",
