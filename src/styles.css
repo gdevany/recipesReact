@@ -13,7 +13,6 @@ a {
 }
 
 .container {
-  /* padding: 0 !important; */
   width: 100%;
 }
 
@@ -38,7 +37,6 @@ a {
 }
 
 .logoBackground {
-  /* background-color: #f2f2f2; */
   background-color: #fcfcfc;
 }
 
@@ -46,16 +44,16 @@ a {
   font-style: italic;
 }
 
-.biggest {
-  font-size: 30px;
+.big {
+  font-size: 18px;
 }
 
 .bigger {
   font-size: 20px;
 }
 
-.big {
-  font-size: 18px;
+.biggest {
+  font-size: 30px;
 }
 
 .smaller {
@@ -71,16 +69,16 @@ a {
   font-weight: 600;
 }
 
-.minHeight {
-  min-height: 20em;
-}
-
 .tight {
   letter-spacing: 0em;
 }
 
 .fade-half {
   opacity: 0.5;
+}
+
+.fade-none {
+  opacity: 1;
 }
 
 .red-title {
@@ -91,10 +89,6 @@ a {
 .dark-title {
   color: black !important;
   font-size: 15px;
-}
-
-.fade-none {
-  opacity: 1;
 }
 
 .shortLine {
@@ -118,10 +112,6 @@ a {
   color: red;
 }
 
-.shadow {
-  text-shadow: 5px 5px 5px black;
-}
-
 .displayInline {
   /*display: inline-block;*/
   margin-left: auto;
@@ -137,6 +127,7 @@ a {
 .navbar-toggler-icon {
   padding-top: 5px;
   width: 100%;
+  min-width: 4.5em;
   height: 100%;
 }
 
@@ -154,8 +145,6 @@ a {
 }
 
 .projbox {
-  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
-  /* box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2) inset; */
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
@@ -173,7 +162,7 @@ a {
 
 .projtitle {
   padding-bottom: 10px;
-  border-bottom: 2px solid rgba(242, 242, 242, 1);
+  border-bottom: 1px solid rgba(242, 242, 242, 1);
 }
 
 .logoinit {
@@ -222,12 +211,6 @@ a {
   right: 1em;
 }
 
-.bgcover {
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
 .projIndimg {
   width: 100%;
   margin-bottom: 30px;
@@ -236,29 +219,15 @@ a {
 
 .projimg {
   width: 90%;
-  /* background-color: #f2f2f2; */
   background-color: #fcfcfc;
   height: 9rem;
   object-fit: cover;
   max-width: 12em;
-  /* padding: 3px; */
-}
-
-/* .projbox {
-  width: 100%;
-} */
-
-.buttonGen {
-  padding: 30px;
 }
 
 .badge {
   font-size: 100% !important;
   margin: 0.5em;
-}
-
-.navbar-toggler-icon {
-  min-width: 4.5em;
 }
 
 .imgAddConfirm {
@@ -267,64 +236,3 @@ a {
   margin-bottom: 20px;
 }
 
-.padtopshort {
-  margin-top: 5px;
-}
-/* 
-.padtop {
-  margin-top: 10px;
-}
-
-.padtop2 {
-  margin-top: 20px;
-}
-
-.padtop3 {
-  margin-top: 50px;
-}
-
-.nopadbottom {
-  padding-bottom: 0em !important;
-}
-
-.padbottom {
-  margin-bottom: 20px;
-}
-
-.padbottom2 {
-  margin-bottom: 30px;
-}
-
-.padInsides {
-  padding: 20px;
-}
-
-.padsides {
-  margin-right: 10px;
-  margin-left: 10px;
-} */
-
-.overflows {
-  overflow: hidden;
-}
-
-.fullSize {
-  width: 100%;
-}
-
-li {
-  padding: 0 15px;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.hideit {
-  display: none;
-}
-
-.squeeze {
-  padding-left: 20px;
-  padding-right: 20px;
-}

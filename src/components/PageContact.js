@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 
@@ -63,4 +64,10 @@ PageContact.propTypes = {
   pageSelected: PropTypes.string.isRequired
 };
 
-export default PageContact;
+function mapStateToProps(state) {
+  return {
+    pageSelected: state.pageSelected
+  };
+}
+
+export default connect(mapStateToProps)(PageContact);

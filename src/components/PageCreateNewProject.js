@@ -1,5 +1,7 @@
 import React from "react";
-import AddImages from "../containers/AddImagesContainer";
+import AddImages from "./AddImages";
+import { connect } from "react-redux";
+import { setPageSelect } from "../actions";
 import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 
@@ -288,4 +290,23 @@ PageCreateNewProject.propTypes = {
   setPage: PropTypes.func.isRequired
 };
 
-export default PageCreateNewProject;
+function mapStateToProps(state) {
+  return {
+    pageSelected: state.pageSelected,
+    subjects: state.subjects,
+    appSubject: state.appSubject
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setPage: page => {
+      dispatch(setPageSelect(page));
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PageCreateNewProject);

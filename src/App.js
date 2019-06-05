@@ -1,18 +1,15 @@
 import React from "react";
-import Logo from "./containers/LogoContainer";
-import Headings from "./containers/HeadingsContainer";
-import PageContact from "./containers/PageContactContainer";
+import Logo from "./components/Logo";
+import Headings from "./components/Headings";
+import PageContact from "./components/PageContact";
 import Footer from "./components/Footer";
-import PageCreateNewProject from "./containers/PageCreateNewProjectContainer";
-import PageHome from "./containers/PageHomeContainer";
-import PageSearch from "./containers/PageSearchContainer";
+import PageCreateNewProject from "./components/PageCreateNewProject";
+import PageHome from "./components/PageHome";
+import PageSearch from "./components/PageSearch";
 
 // import LandingPage from "./containers/LandingPageContainer";
 
 function App(props) {
-  if (props.theme === 'theme-light') {
-    console.log('yes')
-  }
   return (
     <div className={props.theme}>
       <Logo />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Image } from "cloudinary-react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 
@@ -15,7 +16,7 @@ function ShowFullSizeImage(props) {
           className="projIndimg"
         />
         <span
-          className="topRight white biggest shadow"
+          className="topRight white biggest borderShadow"
           onClick={props.toggleShow}
           style={{ cursor: "pointer" }}
         >
@@ -33,4 +34,11 @@ ShowFullSizeImage.propTypes = {
   logo: PropTypes.string.isRequired
 };
 
-export default ShowFullSizeImage;
+function mapStateToProps(state) {
+  return {
+    cloudName: state.cloudName,
+    logo: state.logo
+  };
+}
+
+export default connect(mapStateToProps)(ShowFullSizeImage);

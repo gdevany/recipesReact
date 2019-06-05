@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { Image } from "cloudinary-react";
-import ShowFullSizeImage from "../containers/ShowFullSizeImageContainer";
+import ShowFullSizeImage from "./ShowFullSizeImage";
+import {connect} from "react-redux";
+import {setProjectChosen} from "../actions";
 import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 
@@ -124,4 +126,20 @@ ProjectInd.propTypes = {
   projectChosen: PropTypes.string.isRequired
 };
 
-export default ProjectInd;
+function mapStateToProps(state) {
+  return {
+    pageSelected: state.pageSelected,
+    projectChosen: state.projectChosen,
+    cloudName: state.cloudName,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setProjectChosen: (proj) => {
+      dispatch(setProjectChosen(proj));
+    }
+  };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProjectInd);

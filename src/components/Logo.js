@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 function Logo(props) {
@@ -27,4 +28,11 @@ Logo.propTypes = {
   pageSelected: PropTypes.string.isRequired
 };
 
-export default Logo;
+function mapStateToProps(state) {
+  return {
+    logo: state.logo,
+    pageSelected: state.pageSelected,
+  };
+}
+
+export default connect(mapStateToProps)(Logo);

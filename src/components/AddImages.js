@@ -3,6 +3,7 @@ import Dropzone from "react-dropzone";
 import Loader from "react-loader-spinner";
 import axios from "axios";
 import request from "superagent";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 class AddImages extends React.Component {
@@ -211,4 +212,15 @@ AddImages.propTypes = {
   cloudinaryFilePath: PropTypes.string.isRequired
 };
 
-export default AddImages;
+function mapStateToProps(state) {
+  return {
+    CUP: state.CLOUDINARY_UPLOAD_PRESET,
+    CUU: state.CLOUDINARY_UPLOAD_URL,
+    cloudinaryFilePath: state.cloudinaryFilePath,
+    projectMainImageTag: state.projectMainImageTag,
+    appSubject: state.appSubject,
+    cloudName: state.cloudName
+  };
+}
+
+export default connect(mapStateToProps)(AddImages);

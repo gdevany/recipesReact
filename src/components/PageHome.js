@@ -1,7 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { Image } from "cloudinary-react";
-import ProjectInd from "../containers/ProjectIndContainer";
+import ProjectInd from "./ProjectInd";
+import { connect } from "react-redux";
+import {
+  setProjectChosen,
+  setPageSelect,
+  setSearchTagChosen
+} from "../actions";
 import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 
@@ -125,7 +131,7 @@ class PageHome extends React.Component {
       projs = this.state.gallery.map(proj => {
         viewIt = (
           <div className="projbox col-6 col-sm-4 col-xl-3" key={proj.public_id}>
-            <div className="d-flex flex-column align-items-center pt-4">
+            <div className="d-flex flex-column align-items-center py-3">
               <Image
                 onClick={() => {
                   this.props.setProjectChosen(
@@ -209,4 +215,35 @@ PageHome.propTypes = {
   projectChosen: PropTypes.string.isRequired
 };
 
-export default PageHome;
+function mapStateToProps(state) {
+  return {
+    subjects: state.subjects,
+    loggedIn: state.loggedIn,
+    pageSelected: state.pageSelected,
+    projectChosen: state.projectChosen,
+    appSubject: state.appSubject,
+    cloudinaryPojectFile: state.cloudinaryPojectFile,
+    projectMainImageTag: state.projectMainImageTag,
+    cloudName: state.cloudName,
+    searchTagChosen: state.searchTagChosen
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setProjectChosen: proj => {
+      dispatch(setProjectChosen(proj));
+    },
+    setPage: page => {
+      dispatch(setPageSelect(page));
+    },
+    setSearchTagChosen: tag => {
+      dispatch(setSearchTagChosen(tag));
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PageHome);

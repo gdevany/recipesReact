@@ -1,4 +1,5 @@
 // import React from "react";
+// import {connect} from "react-redux";
 // import PropTypes from "prop-types";
 
 // function LandingPage(props) {
@@ -39,7 +40,14 @@
 //   landingPic: PropTypes.string.isRequired
 // };
 
-// export default LandingPage;
+// function mapStateToProps(state) {
+//   return {
+//     landingPic: state.landingPic,
+//     pageSelected: state.pageSelected,
+//   };
+// }
+
+// export default connect(mapStateToProps)(LandingPage);
 
 // <span className="landingText1 white bigger">Does this remind you of home?</span>
 // <span className="landingText2 white bigger itally">....It should</span>
