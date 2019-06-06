@@ -26,6 +26,15 @@ function ChooseTheme(props) {
         >
           dark
         </button>
+        <button
+          className="btn btn-info"
+          onClick={() => {
+            props.setTheme("theme-soft");
+            props.setPage("home");
+          }}
+        >
+          soft
+        </button>
       </div>
     );
   } else {
