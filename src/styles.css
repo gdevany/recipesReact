@@ -44,7 +44,7 @@ a {
   background-color: #000000c7 !important;
   color: #fcfcfc;
   min-height: 100vh;
-  border: 3px solid red;
+  border: 2px solid red;
   /* border-right: 3px solid red; */
 }
 
@@ -62,7 +62,6 @@ a {
 
 .bigger {
   font-size: 20px;
-  font-weight: 700 !important;
 }
 
 .biggest {

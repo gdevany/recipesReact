@@ -20,7 +20,7 @@ function Logo(props) {
       </div>
     );
 
-  return <div className="container-fluid logoBackground">{viewIt}</div>;
+  return <div className="container-fluid logoBackground pb-2">{viewIt}</div>;
 }
 
 Logo.propTypes = {
