@@ -35,7 +35,7 @@ class PageSearch extends Component {
     if (this.state.thisPage === this.props.pageSelected) {
       chooseTags = this.props.subjects.map(tag => {
         return (
-          <div className="m-1" key={tag}>
+          <div className="my-1" key={tag}>
             <button
               className="badge badge-secondary"
               onClick={() => this.setSubject(tag)}
@@ -53,7 +53,7 @@ class PageSearch extends Component {
     return this.props.pageSelected === this.state.thisPage ? (
       <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
         <div className="container">
-          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center pt-5">
+          <div className="row col-12 col-lg-10 offset-lg-1 justify-content-center pt-5">
             <input onChange={e => this.setTheSearchTag(e)} autoFocus />
             {this.state.searchText.length > 0 && (
               <button className="btn btn-dark" onClick={this.searchFromText}>
@@ -61,7 +61,7 @@ class PageSearch extends Component {
               </button>
             )}
           </div>
-          <div className="row col-12 col-sm-10 offset-sm-1 justify-content-center pt-3">
+          <div className="row col-12 col-lg-10 offset-lg-1 justify-content-center pt-3">
             {this.activateTags()}
           </div>
         </div>

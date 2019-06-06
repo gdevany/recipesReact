@@ -7,7 +7,7 @@ function ChooseTheme(props) {
   let viewIt = "";
   if (props.pageSelected === "theme") {
     viewIt = (
-      <div className="d-flex flex-column lightBorder justify-content-center m-4">
+      <div className="d-flex flex-column lightBorder justify-content-center m-5">
         <button
           className="btn btn-light"
           onClick={ () => props.setTheme("theme-light")}
@@ -30,8 +30,8 @@ function ChooseTheme(props) {
       <div className="container pt-5">
         <div className="row">
           <div className="col-12 offset-lg-1 col-lg-10">
-            <div className="row no-gutters projtitle bigger spread text-left m-2">
-              choose a theme
+            <div className="row no-gutters projtitle">
+            <div className="bigger spread text-left ml-2">choose a theme</div>
             </div>
             {viewIt}
           </div>

@@ -9,7 +9,7 @@ function PageContact(props) {
   if (props.pageSelected === "contact") {
     window.scroll(0, 0);
     viewIt = (
-      <div className="row no-gutters m-2">
+      <div className="row no-gutters pl-3 pt-3">
         <div className="bigger pt-2">Devany</div>
         <div className="pb-2">
           We just want to cook good things, cook them perfectly, and eat as much
@@ -49,8 +49,8 @@ function PageContact(props) {
       <div className="container pt-5">
         <div className="row">
           <div className="col-12 offset-lg-1 col-lg-10">
-            <div className="row no-gutters projtitle bigger spread text-left m-2">
-              contact us
+            <div className="row no-gutters projtitle">
+              <div className="bigger spread text-left ml-2">contact us</div>
             </div>
             {viewIt}
           </div>

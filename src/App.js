@@ -12,17 +12,17 @@ import PageTheme from "./components/PageTheme";
 
 function App(props) {
   return (
-    <div className={props.theme}>
+    <div className="all-themes">
       <Logo />
       <Headings />
       {/* <LandingPage /> */}
-      <div className="main-container">
-      <PageHome />
-      <PageSearch />
-      <PageContact />
-      <PageCreateNewProject />
-      <PageTheme />
-      <Footer />
+      <div className={props.theme}>
+        <PageHome />
+        <PageSearch />
+        <PageContact />
+        <PageCreateNewProject />
+        <PageTheme />
+        <Footer />
       </div>
     </div>
   );

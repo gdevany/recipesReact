@@ -7,6 +7,11 @@ a {
   color: black;
 }
 
+.test-left-container {
+  background-color: red;
+  min-height: 800px;
+}
+
 .container {
   width: 100%;
 }
@@ -19,23 +24,28 @@ a {
 }
 
 .main-container {
-  min-height: 800px;
+  min-height: 100vh;
+}
+
+.all-themes {
+  font-family: "Jura", sans-serif;
+  /* options: 300 400 500 600 700 */
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
 }
 
 .theme-light {
-  font-family: "Jura", sans-serif;
-  /* options: 300 400 500 600 700 */
-  font-weight: 500;
   background-color: #fcfcfc !important;
   color: black;
+  min-height: 100vh;
 }
 
 .theme-dark {
-  font-family: "Jura", sans-serif;
-  /* options: 300 400 500 600 700 */
-  font-weight: 500;
   background-color: #000000c7 !important;
   color: #fcfcfc;
+  min-height: 100vh;
+  border: 3px solid red;
+  /* border-right: 3px solid red; */
 }
 
 .logoBackground {
@@ -52,6 +62,7 @@ a {
 
 .bigger {
   font-size: 20px;
+  font-weight: 700 !important;
 }
 
 .biggest {
@@ -164,7 +175,8 @@ a {
 
 .projtitle {
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(242, 242, 242, 1);
+  /* border-bottom: 2px solid rgba(242, 242, 242, 1); */
+  border-bottom: 1px solid #808080bd;
 }
 
 .logoinit {
@@ -215,7 +227,7 @@ a {
 
 .projIndimg {
   width: 100%;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   position: relative;
 }
 

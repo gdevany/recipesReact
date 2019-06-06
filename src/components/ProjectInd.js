@@ -85,7 +85,7 @@ class ProjectInd extends React.Component {
               }}
               cloudName={this.props.cloudName}
               publicId={image.public_id}
-              className="projIndimg rounded"
+              className="py-2 projIndimg rounded"
               quality="10"
               style={{ cursor: "pointer" }}
               key={image.public_id}
@@ -105,11 +105,11 @@ class ProjectInd extends React.Component {
       <div className="container">
         <div className="row pt-2">
           <div className="projIndimg">{this.showFullSizeImage()}</div>
-            <div className="col-12 col-md-6 d-flex text-left flex-column">
+            <div className="pt-5 col-12 col-md-6 d-flex text-left flex-column">
               <div className="bigger projtitle text-truncate">
                 {this.props.projectChosen}
               </div>
-              <div className="py-3">{this.showDescription()}</div>
+              <div className="pt-3 mb-5">{this.showDescription()}</div>
             </div>
             <div className="col-12 offset-md-1 col-md-5 d-flex flex-column text-center align-items-center">
               <small>Click image to toggle full size & quality</small>
