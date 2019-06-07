@@ -54,7 +54,7 @@ class PageSearch extends Component {
       <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
         <div className="container">
           <div className="row col-12 col-lg-10 offset-lg-1 justify-content-center pt-5">
-            <input onChange={e => this.setTheSearchTag(e)} autoFocus />
+            <input onChange={e => this.setTheSearchTag(e)} />
             {this.state.searchText.length > 0 && (
               <button className="btn btn-dark" onClick={this.searchFromText}>
                 submit
