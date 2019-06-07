@@ -17,9 +17,16 @@ a {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
   .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
+  }
+  .pad-top-resp {
+    padding-top: 0 !important;
   }
 }
 
@@ -44,7 +51,7 @@ a {
   background-color: #000000c7 !important;
   color: #fcfcfc;
   min-height: 100vh;
-  border: 2px solid red;
+  border: 2px solid #ff00009e;
 }
 
 .theme-soft {
@@ -57,6 +64,16 @@ a {
 .logoBackground {
   background-color: #fcfcfc;
 }
+
+.pad-top-resp {
+  padding-top: 1rem;
+}
+
+/* @media (min-width: 480px) { */
+  /* .pad-top-resp {
+    padding-top: 1rem;
+  } */
+/* } */
 
 .itally {
   font-style: italic;

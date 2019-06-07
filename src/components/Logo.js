@@ -12,7 +12,7 @@ function Logo(props) {
   let viewIt = "";
     viewIt = (
       <div className="row">
-        <div className="d-flex justify-content-center col-12 pt-3">
+        <div className="d-flex justify-content-center col-12 pad-top-resp">
           <div className="seclogo">
             <div style={logoImg} className="logoinit" />
           </div>
@@ -20,7 +20,7 @@ function Logo(props) {
       </div>
     );
 
-  return <div className="container-fluid logoBackground pb-2">{viewIt}</div>;
+  return <div className="container-fluid logoBackground">{viewIt}</div>;
 }
 
 Logo.propTypes = {
