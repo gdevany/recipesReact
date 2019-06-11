@@ -116,6 +116,13 @@ a {
   opacity: 1;
 }
 
+.closex {
+  background-color: #00000052;
+  font-size: 30px;
+  color: white;
+  line-height: 0.7;
+}
+
 .red-title {
   color: red !important;
   font-size: 18px;
@@ -243,7 +250,7 @@ a {
 
 .topRight {
   position: absolute;
-  top: 0em;
+  top: 0.5em;
   right: 1em;
 }
 

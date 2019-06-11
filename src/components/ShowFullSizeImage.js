@@ -16,7 +16,7 @@ function ShowFullSizeImage(props) {
           className="projIndimg rounded"
         />
         <span
-          className="topRight white biggest borderShadow"
+          className="topRight p-2 closex"
           onClick={props.toggleShow}
           style={{ cursor: "pointer" }}
         >
