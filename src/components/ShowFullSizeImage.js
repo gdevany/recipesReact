@@ -13,7 +13,7 @@ function ShowFullSizeImage(props) {
         <Image
           cloudName={props.cloudName}
           publicId={props.image}
-          className="projIndimg"
+          className="projIndimg rounded"
         />
         <span
           className="topRight white biggest borderShadow"
