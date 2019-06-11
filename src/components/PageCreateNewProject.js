@@ -62,7 +62,7 @@ class PageCreateNewProject extends React.Component {
     if (pword === "gregiscool" || pword === "Gregiscool") {
       this.setState({ loggedIn: true });
     } else {
-      alert("You shouldnt be here");
+      alert("You guessed wrong");
       this.logOut();
     }
   };
@@ -181,10 +181,7 @@ class PageCreateNewProject extends React.Component {
             <div className="d-flex align-self-start red bigger">
               * = required
             </div>
-            <button
-              className="btn btn-dark py-3"
-              disabled={!isEnabled}
-            >
+            <button className="btn btn-dark py-3" disabled={!isEnabled}>
               {submitButtonMessage}
               Name and Description
             </button>

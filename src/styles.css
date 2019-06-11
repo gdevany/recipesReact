@@ -75,6 +75,10 @@ a {
   } */
 /* } */
 
+.btn {
+  white-space: pre-wrap !important;
+}
+
 .itally {
   font-style: italic;
 }
