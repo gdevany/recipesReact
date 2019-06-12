@@ -26,7 +26,7 @@ a {
     margin-left: 0 !important;
   }
   .pad-top-resp {
-    padding-top: 0 !important;
+    /* padding-top: 0 !important; */
   }
 }
 
@@ -55,10 +55,10 @@ a {
 }
 
 .theme-soft {
-  background-color: #8FC1E3 !important;
+  background-color: #8fc1e3 !important;
   color: black;
   min-height: 100vh;
-  border: 2px solid #31708E;
+  border: 2px solid #31708e;
 }
 
 .logoBackground {
@@ -70,7 +70,7 @@ a {
 }
 
 /* @media (min-width: 480px) { */
-  /* .pad-top-resp {
+/* .pad-top-resp {
     padding-top: 1rem;
   } */
 /* } */
@@ -281,4 +281,41 @@ a {
   width: 75%;
   max-width: 200px;
   margin-bottom: 20px;
+}
+
+.logo-box1 {
+  color: black;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: -5px;
+  box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.logo-box2 {
+  background: linear-gradient(
+    to bottom,
+    #4c4c4c 0%,
+    #595959 12%,
+    #666666 25%,
+    #474747 39%,
+    #2c2c2c 50%,
+    #000000 51%,
+    #111111 60%,
+    #2b2b2b 76%,
+    #1c1c1c 91%,
+    #131313 100%
+  );
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 100%;
+  height: auto;
 }
