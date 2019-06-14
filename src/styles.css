@@ -284,6 +284,7 @@ a {
 }
 
 .logo-box1 {
+  font-family: arial rounded mt bold;
   color: black;
   background: linear-gradient(
     to bottom,
@@ -291,7 +292,7 @@ a {
     rgba(0, 0, 0, 0) 100%
   );
   font-size: 1.3rem;
-  font-weight: 700;
+  /* font-weight: 700; */
   width: 100%;
   height: auto;
   margin-top: 5px;
