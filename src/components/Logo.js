@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 function Logo(props) {
-  const logoImg = {
-    background:
-      "url(" + require(`../pics/${props.logo}`) + ") no-repeat center",
-    backgroundSize: "contain"
-  };
+  // const logoImg = {
+  //   background:
+  //     "url(" + require(`../pics/${props.logo}`) + ") no-repeat center",
+  //   backgroundSize: "contain"
+  // };
 
   let viewIt = "";
   viewIt = (
