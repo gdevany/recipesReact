@@ -7,6 +7,7 @@ import PageCreateNewProject from "./components/PageCreateNewProject";
 import PageHome from "./components/PageHome";
 import PageSearch from "./components/PageSearch";
 import PageTheme from "./components/PageTheme";
+// import Temp from "./components/Temp";
 
 // import LandingPage from "./containers/LandingPageContainer";
 
@@ -16,6 +17,7 @@ function App(props) {
       <Logo />
       <Headings />
       {/* <LandingPage /> */}
+      {/* <Temp /> */}
       <div className={props.theme}>
         <PageHome />
         <PageSearch />

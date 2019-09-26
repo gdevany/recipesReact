@@ -95,7 +95,7 @@ class PageCreateNewProject extends React.Component {
           <div className="d-flex flex-column col-12 pt-5 justify-content-center">
             <div>enter super secret password</div>
             <input
-              autoFocus
+              // autoFocus
               autoCapitalize="off"
               onChange={e => this.setState({ pword: e.target.value })}
             />
